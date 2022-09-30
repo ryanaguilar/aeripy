@@ -1,0 +1,2 @@
+class AeripyException(Exception):
+    pass
