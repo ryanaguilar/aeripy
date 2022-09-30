@@ -38,7 +38,7 @@ class Term:
 
 
 @dataclass
-class SystemInfo:
+class School:
     RegionCode: str
     StateCharterNumber: str
     CharterStatusCode: str
