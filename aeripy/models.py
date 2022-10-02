@@ -35,6 +35,7 @@ class Term:
     TermDescription: str
     StartDate: datetime
     EndDate: datetime
+    UsingSectionStaffInMasterSchedule: str
 
 
 @dataclass
@@ -85,3 +86,6 @@ class School:
     AttendanceReporting: str
     ScheduleBasis: str
     PhoneNumber: str
+    UsingSectionStaffInMasterSchedule: bool
+    UsingSectionStaffInScheduling: bool
+

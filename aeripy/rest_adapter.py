@@ -37,7 +37,7 @@ class RestAdapter:
         :return: a Result object
         """
         full_url = self.url + endpoint
-        headers = {'x-api-key': self._api_key}
+        headers = {"AERIES-CERT": self._api_key}
         log_line_pre = f"method{http_method}, url={full_url}, params={ep_params}"
         log_line_post = ', '.join((log_line_pre, "success={}, status_code={}, message={}"))
 
