@@ -18,74 +18,87 @@ class Result:
         self.message = str(message)
         self.data = data if data else []
 
+
 @dataclass
-class SystemInfo:
-    AeriesVersion: str
-    DatabaseYear: str
-    AvailableDatabaseYears: List[str]
-    LocalTimeZoneName: str
-    CurrentDateTime: datetime
+class School:
+    aeries_version: str
+    database_year: str
+    available_database_years: List[str]
+    local_time_zone_name: str
+    current_date_time: datetime
+
+
+
 
 @dataclass
 class Term:
-    FirstHalfEndDate: None
-    SecondHalfStartDate: None
-    TrackTerms: List[Any]
-    TermCode: str
-    TermDescription: str
-    StartDate: datetime
-    EndDate: datetime
-
+    first_half_end_date: None
+    second_half_start_date: None
+    track_terms: List[Any]
+    term_code: str
+    term_description: str
+    start_date: datetime
+    end_date: datetime
 
 
 @dataclass
 class School:
-    RegionCode: str
-    StateCharterNumber: str
-    CharterStatusCode: str
-    FederalTaxID: str
-    FederalInformationProcessingStandardsCode: str
-    QualityRatingAndImprovementSystemParticipationCode: str
-    AccreditationStatusCode: str
-    SchoolWebsite: str
-    OrganizationCategoryCode: str
-    SchoolCategoryCode: str
-    LocalEducationAgencyTypeCode: str
-    TitleIPartACode: str
-    NSLPStatusCode: str
-    NCESSchoolID: str
-    CollegeBoardSchoolCode: int
-    CampusEnrollmentTypeCode: str
-    PreKSchoolTypeCode: str
-    EarlyCollegeHighSchoolIndicator: bool
-    ScienceTechnologyEngineeringAndMathematicsIndicator: bool
-    PathwaysInTechnologyIndicator: bool
-    ShortName: str
-    Terms: List[Term]
-    SchoolCode: int
-    Name: str
-    InactiveStatusCode: str
-    Address: str
-    AddressCity: str
-    AddressState: str
-    AddressZipCode: int
-    AddressZipExt: str
-    DoNotReport: bool
-    StateCountyID: int
-    StateDistrictID: int
-    StateSchoolID: str
-    LowGradeLevel: int
-    HighGradeLevel: int
-    PrincipalName: str
-    PrincipalEmailAddress: str
-    AttendancePeriod: int
-    Tracks: int
-    ScheduleType: str
-    SessionType: str
-    AttendanceType: str
-    AttendanceReporting: str
-    ScheduleBasis: str
-    PhoneNumber: str
-    UsingSectionStaffInMasterSchedule: bool
-    UsingSectionStaffInScheduling: bool
+    region_code: str
+    state_charter_number: str
+    charter_status_code: str
+    federal_tax_id: str
+    federal_information_processing_standards_code: str
+    quality_rating_and_improvement_system_participation_code: str
+    accreditation_status_code: str
+    school_website: str
+    organization_category_code: str
+    school_category_code: str
+    local_education_agency_type_code: str
+    title_i_part_a_code: str
+    nslp_status_code: str
+    nces_school_id: str
+    college_board_school_code: int
+    campus_enrollment_type_code: str
+    pre_k_school_type_code: str
+    early_college_high_school_indicator: bool
+    science_technology_engineering_and_mathematics_indicator: bool
+    pathways_in_technology_indicator: bool
+    short_name: str
+    using_section_staff_in_master_schedule: bool
+    using_section_staff_in_scheduling: bool
+    terms: List[Term]
+    school_code: int
+    name: str
+    inactive_status_code: str
+    address: str
+    address_city: str
+    address_state: str
+    address_zip_code: int
+    address_zip_ext: str
+    do_not_report: bool
+    state_county_id: int
+    state_district_id: int
+    state_school_id: int
+    low_grade_level: int
+    high_grade_level: int
+    principal_name: str
+    principal_email_address: str
+    attendance_period: int
+    tracks: int
+    schedule_type: str
+    session_type: str
+    attendance_type: str
+    attendance_reporting: str
+    schedule_basis: str
+    phone_number: str
+
+
+@dataclass
+class BellScheduleElement:
+    school_code: int
+    period: int
+    start_time: datetime
+    end_time: datetime
+    calendar_date: None
+
 
