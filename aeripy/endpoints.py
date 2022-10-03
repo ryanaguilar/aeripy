@@ -3,6 +3,8 @@ https://support.aeries.com/support/solutions/articles/14000070569-api-quick-refe
 
 API_PATH = {
     "system_info":      "/systeminfo",
-    "schools":          "/schools"
+    "schools":          "/schools",
+    "school":           "/schools/{school_code}",
+    "terms":            "/schools/{school_code}/terms"
 }
 

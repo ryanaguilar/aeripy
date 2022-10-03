@@ -35,7 +35,7 @@ class Term:
     TermDescription: str
     StartDate: datetime
     EndDate: datetime
-    UsingSectionStaffInMasterSchedule: str
+
 
 
 @dataclass

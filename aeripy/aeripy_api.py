@@ -20,7 +20,17 @@ class AeripyApi:
         return sys_info
 
     def get_schools(self) -> List[School]:
-        result = self._rest_adapter.get(endpoint=f"{API_PATH['schools']}/")
+        result = self._rest_adapter.get(endpoint=API_PATH['schools'])
         schools_list: List[School] = [School(**datum) for datum in result.data]
         return schools_list
+
+    def get_school(self, school_code: int) -> School:
+        result = self._rest_adapter.get(endpoint=API_PATH['school'].format(school_code=school_code))
+        school: School = School(**result.data)
+        return school
+
+    def get_terms(self, school_code: int) -> List[Term]:
+        result = self._rest_adapter.get(endpoint=API_PATH['terms'].format(school_code=school_code))
+        terms_list: List[Term] = [Term(**datum) for datum in result.data]
+        return terms_list
 
