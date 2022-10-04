@@ -8,6 +8,6 @@ API_PATH = {
     "terms":                "/schools/{school_code}/terms",
     "bell_schedule":        "/schools/{school_code}/BellSchedule",
     "bell_schedule_date":   "/schools/{school_code}/BellSchedule/date/{date}",
-    "calendar":             "/schools/{school_code/calendar"
+    "calendar":             "/schools/{school_code}/calendar"
 }
 

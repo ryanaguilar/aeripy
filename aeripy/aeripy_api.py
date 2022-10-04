@@ -48,8 +48,7 @@ class AeripyApi:
         bell_schedule = BellScheduleElement(**snake_case_keys(result.data))
         return bell_schedule
 
-
     def get_calendar(self, school_code: int) -> List[CalendarElement]:
         result = self._rest_adapter.get(endpoint=API_PATH["calendar"].format(school_code=school_code))
-        calendar = [CalendarElement(**snake_case_keys(datum) for datum in result.data)]
+        calendar = [CalendarElement(**snake_case_keys(datum)) for datum in result.data]
         return calendar
