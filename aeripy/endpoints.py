@@ -12,6 +12,9 @@ API_PATH = {
     "absence_codes":        "/schools/{school_code}/AbsenceCodes",
     "absence_code":         "/schools/{school_code}/AbsenceCodes/{AbsenceCode}",
     "staff":                "/staff/{staff_id}",
-    "staff_hrid":           "/staff/hrid/{hr_id}"
+    "staff_hrid":           "/staff/hrid/{hr_id}",
+    "assignments":          "/staff/{staff_id}/assignments",
+    "assignments_type":     "/staff/{staff_id}/assignments/{assignment_type}",
+    "assignments_sequence": "/staff/{staff_id}/assignments/{assignment_type}/{sequence_number}"
 }
 
