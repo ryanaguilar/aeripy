@@ -43,7 +43,7 @@ class AeripyApi:
         bell_schedules = [BellScheduleElement(**snake_case_keys(datum)) for datum in result.data]
         return bell_schedules
 
-    def get_bell_schedule(self, school_code: str, date: int) -> BellScheduleElement:
+    def get_bell_schedule(self, school_code: str, date: str) -> BellScheduleElement:
         result = self.get_bell_schedules(school_code, date)
         bell_schedule = BellScheduleElement(**snake_case_keys(result.data))
         return bell_schedule
