@@ -53,17 +53,18 @@ class AeripyApi:
         calendar = [CalendarElement(**snake_case_keys(datum)) for datum in result.data]
         return calendar
 
-    def get_absence_codes(self, school_code: int, absence_code: int=None) -> List[AbsenceCodeElement]:
+    def get_absence_codes(self, school_code: int, absence_code: int = None) -> List[AbsenceCodeElement]:
         if absence_code is not None:
-            endpoint = API_PATH['bell_schedule_date'].format(school_code=school_code, absence_code=absence_code)
+            endpoint = API_PATH['absence_code'].format(school_code=school_code, absence_code=absence_code)
         else:
-            endpoint =  API_PATH['bell_schedule'].format(school_code=school_coode)
+            endpoint = API_PATH['absence_codes'].format(school_code=school_code)
         result = self._rest_adapter.get(endpoint=endpoint)
         absence_codes_list = [AbsenceCodeElement(**snake_case_keys(datum)) for datum in result.data]
         return absence_codes_list
 
     def get_absence_code(self, school_code: int, absence_code: int) -> AbsenceCodeElement:
-        result = self._rest_adapter.get(endpoint=endpoint)
+        result = self._rest_adapter.get(endpoint=API_PATH['absence_code'].format(school_code=school_code,
+                                                                                 absence_code=absence_code))
         absence_code = AbsenceCodeElement(*snake_case_keys(result.data))
         return absence_code
 
