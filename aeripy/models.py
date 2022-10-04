@@ -130,3 +130,35 @@ class CalendarElement:
     ab_day: str
     attendance_month_locked: bool
 
+
+class ColorCode(Enum):
+    BE212_F = "be212f"
+    E2_AA26 = "e2aa26"
+    EMPTY = ""
+    F1_D89_C = "f1d89c"
+
+
+class IndependentStudyCode(Enum):
+    C = "C"
+    EMPTY = ""
+    I = "I"
+
+
+@dataclass
+class AbsenceCodeElement:
+    is_temporarily_not_enrolled: bool
+    independent_study_code: IndependentStudyCode
+    color_code: ColorCode
+    school_code: int
+    absence_code: str
+    title: str
+    abbreviation: str
+    type_code: int
+    type_description: str
+    counts_for_ada: bool
+    include_on_letters: bool
+    include_in_parent_notifications: bool
+    include_on_reports: bool
+    count_on_report_card: bool
+    is_suspension: bool
+    is_partial_day_truant: bool
