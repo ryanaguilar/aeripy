@@ -34,7 +34,7 @@ class AeripyApi:
         terms_list = [Term(**snake_case_keys(datum)) for datum in result.data]
         return terms_list
 
-    def get_bell_schedules(self, school_code: str, date: int=None) -> List[BellScheduleElement]:
+    def get_bell_schedules(self, school_code: int, date: int=None) -> List[BellScheduleElement]:
         if date is not None:
             endpoint = API_PATH['bell_schedule_date'].format(school_code=school_code, date=date)
         else:
@@ -43,7 +43,7 @@ class AeripyApi:
         bell_schedules = [BellScheduleElement(**snake_case_keys(datum)) for datum in result.data]
         return bell_schedules
 
-    def get_bell_schedule(self, school_code: str, date: str) -> BellScheduleElement:
+    def get_bell_schedule(self, school_code: int, date: str) -> BellScheduleElement:
         result = self.get_bell_schedules(school_code, date)
         bell_schedule = BellScheduleElement(**snake_case_keys(result.data))
         return bell_schedule
