@@ -1,7 +1,7 @@
 from unittest import TestCase
 from unittest.mock import MagicMock
 from aeripy.aeripy_api import AeripyApi
-from aeripy.models import School, SystemInfo, Result
+from aeripy.models import School, SystemInfo, Result, Term
 
 
 class TestAeripyApi(TestCase):
@@ -261,3 +261,76 @@ class TestAeripyApi(TestCase):
                                                                })
         school = self.aeripyapi.get_school(0)
         self.assertIsInstance(school, School)
+
+
+    def test_get_terms(self):
+        self.aeripyapi._rest_adapter.get.return_value = Result(200,
+                                                               headers={},
+                                                               data=[
+                                                                   {
+                                                                        "FirstHalfEndDate": None,
+                                                                        "SecondHalfStartDate": None,
+                                                                        "TrackTerms": [],
+                                                                        "TermCode": "1",
+                                                                        "TermDescription": "1st Quarter",
+                                                                        "StartDate": "2022-07-04T00:00:00",
+                                                                        "EndDate": "2022-10-14T00:00:00"
+                                                                    },
+                                                                    {
+                                                                        "FirstHalfEndDate": None,
+                                                                        "SecondHalfStartDate": None,
+                                                                        "TrackTerms": [],
+                                                                        "TermCode": "2",
+                                                                        "TermDescription": "2nd Quarter",
+                                                                        "StartDate": "2022-10-17T00:00:00",
+                                                                        "EndDate": "2022-12-21T00:00:00"
+                                                                    },
+                                                                    {
+                                                                        "FirstHalfEndDate": None,
+                                                                        "SecondHalfStartDate": None,
+                                                                        "TrackTerms": [],
+                                                                        "TermCode": "3",
+                                                                        "TermDescription": "3rd Quarter",
+                                                                        "StartDate": "2023-01-02T00:00:00",
+                                                                        "EndDate": "2023-03-24T00:00:00"
+                                                                    },
+                                                                    {
+                                                                        "FirstHalfEndDate": None,
+                                                                        "SecondHalfStartDate": None,
+                                                                        "TrackTerms": [],
+                                                                        "TermCode": "4",
+                                                                        "TermDescription": "4th Quarter",
+                                                                        "StartDate": "2023-03-27T00:00:00",
+                                                                        "EndDate": "2023-08-04T00:00:00"
+                                                                    },
+                                                                    {
+                                                                        "FirstHalfEndDate": None,
+                                                                        "SecondHalfStartDate": None,
+                                                                        "TrackTerms": [],
+                                                                        "TermCode": "F",
+                                                                        "TermDescription": "Fall",
+                                                                        "StartDate": "2022-07-04T00:00:00",
+                                                                        "EndDate": "2022-12-21T00:00:00"
+                                                                    },
+                                                                    {
+                                                                        "FirstHalfEndDate": None,
+                                                                        "SecondHalfStartDate": None,
+                                                                        "TrackTerms": [],
+                                                                        "TermCode": "S",
+                                                                        "TermDescription": "Spring",
+                                                                        "StartDate": "2023-01-02T00:00:00",
+                                                                        "EndDate": "2023-08-04T00:00:00"
+                                                                    },
+                                                                    {
+                                                                        "FirstHalfEndDate": None,
+                                                                        "SecondHalfStartDate": None,
+                                                                        "TrackTerms": [],
+                                                                        "TermCode": "Y",
+                                                                        "TermDescription": "Year",
+                                                                        "StartDate": "2022-07-04T00:00:00",
+                                                                        "EndDate": "2023-08-04T00:00:00"
+                                                                    }
+                                                                ])
+        terms = self.aeripyapi.get_terms(994)
+        for term in terms:
+            self.assertIsInstance(term, Term)g
