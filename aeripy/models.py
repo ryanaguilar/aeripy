@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from typing import List, Dict, Any
 from datetime import datetime
 from requests.structures import CaseInsensitiveDict
+from enum import Enum
 from aeripy import AeripyException
 
 
@@ -108,4 +109,24 @@ class BellScheduleElement:
     end_time: datetime
     calendar_date: None
 
+
+class HolidayCode(Enum):
+    EMPTY = ""
+    HOLIDAY_CODE = "#"
+    PURPLE = "@"
+
+
+@dataclass
+class SchoolElement:
+    track_holidays: List[Any]
+    school_code: int
+    calendar_day_number: int
+    calendar_date: datetime
+    holiday_code: HolidayCode
+    attendance_month: int
+    total_apportionment: int
+    total_enrollment: int
+    period_block_pattern: str
+    ab_day: str
+    attendance_month_locked: bool
 
