@@ -68,3 +68,11 @@ class AeripyApi:
         absence_code = AbsenceCodeElement(*snake_case_keys(result.data))
         return absence_code
 
+    def get_staff(self, staff_id: int = None) -> List[StaffElement]:
+        if staff_id is not None:
+            endpoint = API_PATH['staff_id'].format(staff_id=staff_id)
+        else:
+            endpoint = API_PATH['staff']
+        result = self._rest_adapter.get(endpoint=endpoint)
+        staff_list = [StaffElement(**snake_case_keys(datum)) for datum in result.data]
+        return staff_list

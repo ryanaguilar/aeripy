@@ -177,8 +177,8 @@ class StaffElement:
     extended_properties: List[Any]
     early_childhood_certification_code: str
     gender: str
-    education_level_code: Union[InactiveStatusCode, int]
-    ethnicity_code: EthnicityCode
+    education_level_code: int
+    ethnicity_code: str
     race_code1: str
     race_code2: str
     race_code3: str
