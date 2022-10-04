@@ -117,7 +117,7 @@ class HolidayCode(Enum):
 
 
 @dataclass
-class SchoolElement:
+class CalendarElement:
     track_holidays: List[Any]
     school_code: int
     calendar_day_number: int

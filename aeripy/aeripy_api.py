@@ -49,3 +49,4 @@ class AeripyApi:
         return bell_schedule
 
 
+
