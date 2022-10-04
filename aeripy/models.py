@@ -28,6 +28,13 @@ class School:
     current_date_time: datetime
 
 
+@dataclass
+class SystemInfo:
+    aeries_version: str
+    database_year: str
+    available_database_years: List[str]
+    local_time_zone_name: str
+    current_date_time: datetime
 
 
 @dataclass
