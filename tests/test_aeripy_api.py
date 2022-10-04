@@ -267,3 +267,26 @@ class TestAeripyApi(TestCase):
         bell_schedules_list = self.aeripyapi.get_bell_schedules(994)
         for bell_schedule in bell_schedules_list:
             self.assertIsInstance(bell_schedule, BellScheduleElement)
+
+    def test_get_bell_schedule(self):
+        self.aeripyapi._rest_adapter.get.return_value = Result(200,
+                                                               headers={},
+                                                               data=[
+                                                                    {
+                                                                        "SchoolCode": 994,
+                                                                        "Period": "0",
+                                                                        "StartTime": "1907-12-30T07:05:00",
+                                                                        "EndTime": "1907-12-30T07:55:00",
+                                                                        "CalendarDate": None
+                                                                    },
+                                                                    {
+                                                                        "SchoolCode": 994,
+                                                                        "Period": "1",
+                                                                        "StartTime": "1907-12-30T08:00:00",
+                                                                        "EndTime": "1907-12-30T08:50:00",
+                                                                        "CalendarDate": None
+                                                                    }
+                                                                ])
+        bell_schedules_list = self.aeripyapi.get_bell_schedules(994, '10-04-2022')
+        for bell_schedule in bell_schedules_list:
+            self.assertIsInstance(bell_schedule, BellScheduleElement)
