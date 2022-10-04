@@ -245,7 +245,7 @@ class TestAeripyApi(TestCase):
         for term in terms:
             self.assertIsInstance(term, Term)
 
-    def test_get_bell_schedules(self):
+    def test_get_bell_schedules_school_day(self):
         self.aeripyapi._rest_adapter.get.return_value = Result(200,
                                                                headers={},
                                                                data=[
@@ -268,7 +268,7 @@ class TestAeripyApi(TestCase):
         for bell_schedule in bell_schedules_list:
             self.assertIsInstance(bell_schedule, BellScheduleElement)
 
-    def test_get_bell_schedule(self):
+    def test_get_bell_schedule_school_day(self):
         self.aeripyapi._rest_adapter.get.return_value = Result(200,
                                                                headers={},
                                                                data=[
@@ -290,3 +290,6 @@ class TestAeripyApi(TestCase):
         bell_schedules_list = self.aeripyapi.get_bell_schedules(994, '10-04-2022')
         for bell_schedule in bell_schedules_list:
             self.assertIsInstance(bell_schedule, BellScheduleElement)
+
+    def test_get_bell_schedules_non_school_day(self):
+        pass
