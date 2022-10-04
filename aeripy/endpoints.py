@@ -10,6 +10,8 @@ API_PATH = {
     "bell_schedule_date":   "/schools/{school_code}/BellSchedule/date/{date}",
     "calendar":             "/schools/{school_code}/calendar",
     "absence_codes":        "/schools/{school_code}/AbsenceCodes",
-    "absence_code":         "/schools/{school_code}/AbsenceCodes/{AbsenceCode}"
+    "absence_code":         "/schools/{school_code}/AbsenceCodes/{AbsenceCode}",
+    "staff":                "/staff/{staff_id}",
+    "staff_hrid":           "/staff/hrid/{hr_id}"
 }
 
