@@ -5,7 +5,7 @@ from aeripy.exceptions import AeripyException
 from aeripy.models import *
 from .endpoints import API_PATH
 from .models import SystemInfo, School
-from .util.snake import snake_case_keys
+from .util.snake import snake_case_keys, camel_case_keys
 
 class AeripyApi:
     def __init__(self, hostname: str = "demo.aeries.net/aeries/api", api_key: str = '477abe9e7d27439681d62f4e0de1f5e1',
@@ -76,3 +76,8 @@ class AeripyApi:
         result = self._rest_adapter.get(endpoint=endpoint)
         staff_list = [StaffElement(**snake_case_keys(datum)) for datum in result.data]
         return staff_list
+
+    def insert_staff(self, staff_update: dict) -> StaffElement:
+        result = self._rest_adapter.post(endpoint=API_PATH["staff"], data=camel_case_keys(staff_update))
+        staff = StaffElement(**snake_case_keys(result.data))
+        return staff
