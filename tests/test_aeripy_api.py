@@ -577,3 +577,68 @@ class TestAeripyApi(TestCase):
         staff = self.aeripyapi.update_staff(data=data)
         self.assertIsInstance(staff, StaffElement)
 
+    def test_update_staff_no_match_autogen_off(self):
+        self.aeripyapi._rest_adapter.put.return_value = Result(201,
+                                                                 headers={},
+                                                                 data={
+                                                                "SchoolAccessPermissions": [
+                                                                    {
+                                                                        "SchoolCode": 884,
+                                                                        "ReadOnlyAccess": False,
+                                                                        "CommunicationGroup": True
+                                                                    }
+                                                                ],
+                                                                "ExtendedProperties": [],
+                                                                "EarlyChildhoodCertificationCode": "",
+                                                                "Gender": "M",
+                                                                "EducationLevelCode": "2",
+                                                                "EthnicityCode": "N",
+                                                                "RaceCode1": "700",
+                                                                "RaceCode2": "",
+                                                                "RaceCode3": "",
+                                                                "RaceCode4": "",
+                                                                "RaceCode5": "",
+                                                                "PositionStatusCode": "1",
+                                                                "TotalYearsOfEduService": 9,
+                                                                "TotalYearsInThisDistrict": 9,
+                                                                "PreviousLastName": "",
+                                                                "PreviousFirstName": "",
+                                                                "PreviousMiddleName": "",
+                                                                "NameSuffix": " ",
+                                                                "Address": "",
+                                                                "AddressCity": "",
+                                                                "AddressState": "",
+                                                                "AddressZipCode": "",
+                                                                "AddressZipExt": "",
+                                                                "HomePhone": "",
+                                                                "EmergencyContactName": "",
+                                                                "EmergencyContactPhone": "",
+                                                                "ID": 90210,
+                                                                "FirstName": "Dylan",
+                                                                "LastName": "McKay",
+                                                                "MiddleName": "Maxwell",
+                                                                "BirthYear": 1986,
+                                                                "BirthDate": "1988-02-22T00:00:00",
+                                                                "FullTimePercentage": 100,
+                                                                "HireDate": "2013-08-30T00:00:00",
+                                                                "LeaveDate": None,
+                                                                "InactiveStatusCode": "",
+                                                                "StateEducatorID": "7777884616",
+                                                                "UserName": "Teacher884-8",
+                                                                "EmailAddress": "dario.abbott@example.com",
+                                                                "PrimaryAeriesSchool": 884,
+                                                                "NetworkLoginID": "dario.abbott",
+                                                                "AlternateEmailAddress": "",
+                                                                "HumanResourcesSystemID": "",
+                                                                "CellPhone": "",
+                                                                "NotificationPreferenceCode": "1",
+                                                                "Title": ""
+                                                            })
+        data = {
+            "id":           "90210",
+            "first_name":   "Dylan",
+            "last_name":    "McKay"
+        }
+        staff = self.aeripyapi.update_staff(data=data)
+        self.assertIsInstance(staff, StaffElement)
+
