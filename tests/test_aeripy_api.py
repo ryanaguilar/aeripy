@@ -2,6 +2,7 @@ from unittest import TestCase
 from unittest.mock import MagicMock
 from aeripy.aeripy_api import AeripyApi
 from aeripy.models import School, SystemInfo, Result, Term, BellScheduleElement, StaffElement
+from aeripy.exceptions import AeripyException
 
 
 class TestAeripyApi(TestCase):
@@ -636,3 +637,18 @@ class TestAeripyApi(TestCase):
         staff = self.aeripyapi.update_staff(data=data)
         self.assertIsInstance(staff, StaffElement)
 
+    def test_update_staff_no_match_autogen_on(self):
+        self.aeripyapi._rest_adapter.put.return_value = Result(400,
+                                                               headers={},
+                                                               data={
+                                                                   "Message": "Staff ID 90211 does not exist. " 
+                                                                              "District settings prevent adding new "
+                                                                              "Staff ID with this method"
+                                                               })
+        data = {
+            "id":           "90211",
+            "first_name":   "Dylan",
+            "last_name":    "McKay"
+        }
+        self.aeripyapi.update_staff(data=data)
+        self.assertRaises(AeripyException)
