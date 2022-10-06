@@ -512,7 +512,7 @@ class TestAeripyApi(TestCase):
         staff = self.aeripyapi.insert_staff(data=data)
         self.assertIsInstance(staff, StaffElement)
 
-    def test_update_staff_with_id(self):
+    def test_update_staff_with_match(self):
         self.aeripyapi._rest_adapter.put.return_value = Result(200,
                                                                  headers={},
                                                                  data={
