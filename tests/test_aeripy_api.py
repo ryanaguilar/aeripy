@@ -650,5 +650,4 @@ class TestAeripyApi(TestCase):
             "first_name":   "Dylan",
             "last_name":    "McKay"
         }
-        self.aeripyapi.update_staff(data=data)
         self.assertRaises(AeripyException)
