@@ -483,9 +483,9 @@ class TestAeripyApi(TestCase):
                                                                         "HomePhone": "",
                                                                         "EmergencyContactName": "",
                                                                         "EmergencyContactPhone": "",
-                                                                        "ID": 123456,
-                                                                        "FirstName": "Jon",
-                                                                        "LastName": "McDoe",
+                                                                        "ID": 19480317,
+                                                                        "FirstName": "Richard",
+                                                                        "LastName": "Wintermute",
                                                                         "MiddleName": "",
                                                                         "BirthYear": 0,
                                                                         "BirthDate": None,
@@ -504,4 +504,76 @@ class TestAeripyApi(TestCase):
                                                                         "NotificationPreferenceCode": "",
                                                                         "Title": ""
                                                                     })
+        data = {
+            "id":           "19480317",
+            "FirstName":    "Richard",
+            "LastName":     "Wintermute"
+        }
+        staff = self.aeripyapi.insert_staff(data=data)
+        self.assertIsInstance(staff, StaffElement)
+
+    def test_update_staff_with_id(self):
+        self.aeripyapi._rest_adapter.put.return_value = Result(200,
+                                                                 headers={},
+                                                                 data={
+                                                                "SchoolAccessPermissions": [
+                                                                    {
+                                                                        "SchoolCode": 884,
+                                                                        "ReadOnlyAccess": False,
+                                                                        "CommunicationGroup": True
+                                                                    }
+                                                                ],
+                                                                "ExtendedProperties": [],
+                                                                "EarlyChildhoodCertificationCode": "",
+                                                                "Gender": "M",
+                                                                "EducationLevelCode": "2",
+                                                                "EthnicityCode": "N",
+                                                                "RaceCode1": "700",
+                                                                "RaceCode2": "",
+                                                                "RaceCode3": "",
+                                                                "RaceCode4": "",
+                                                                "RaceCode5": "",
+                                                                "PositionStatusCode": "1",
+                                                                "TotalYearsOfEduService": 9,
+                                                                "TotalYearsInThisDistrict": 9,
+                                                                "PreviousLastName": "",
+                                                                "PreviousFirstName": "",
+                                                                "PreviousMiddleName": "",
+                                                                "NameSuffix": " ",
+                                                                "Address": "",
+                                                                "AddressCity": "",
+                                                                "AddressState": "",
+                                                                "AddressZipCode": "",
+                                                                "AddressZipExt": "",
+                                                                "HomePhone": "",
+                                                                "EmergencyContactName": "",
+                                                                "EmergencyContactPhone": "",
+                                                                "ID": 884616,
+                                                                "FirstName": "Dario",
+                                                                "LastName": "Abbott",
+                                                                "MiddleName": "Maxwell",
+                                                                "BirthYear": 1986,
+                                                                "BirthDate": "1988-02-22T00:00:00",
+                                                                "FullTimePercentage": 100,
+                                                                "HireDate": "2013-08-30T00:00:00",
+                                                                "LeaveDate": None,
+                                                                "InactiveStatusCode": "",
+                                                                "StateEducatorID": "7777884616",
+                                                                "UserName": "Teacher884-8",
+                                                                "EmailAddress": "dario.abbott@example.com",
+                                                                "PrimaryAeriesSchool": 884,
+                                                                "NetworkLoginID": "dario.abbott",
+                                                                "AlternateEmailAddress": "",
+                                                                "HumanResourcesSystemID": "",
+                                                                "CellPhone": "",
+                                                                "NotificationPreferenceCode": "1",
+                                                                "Title": ""
+                                                            })
+        data = {
+            "id":           "884616",
+            "first_name":   "Dario",
+            "last_name":    "Abbot"
+        }
+        staff = self.aeripyapi.update_staff(data=data)
+        self.assertIsInstance(staff, StaffElement)
 

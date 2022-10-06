@@ -77,7 +77,12 @@ class AeripyApi:
         staff_list = [StaffElement(**snake_case_keys(datum)) for datum in result.data]
         return staff_list
 
-    def insert_staff(self, staff_update: dict) -> StaffElement:
-        result = self._rest_adapter.post(endpoint=API_PATH["staff"], data=camel_case_keys(staff_update))
+    def insert_staff(self, data: dict) -> StaffElement:
+        result = self._rest_adapter.post(endpoint=API_PATH["staff"], data=camel_case_keys(data))
+        staff = StaffElement(**snake_case_keys(result.data))
+        return staff
+
+    def update_staff(self, data: dict) -> StaffElement:
+        result = self._rest_adapter.put(endpoint=API_PATH["staff"], data=camel_case_keys(data))
         staff = StaffElement(**snake_case_keys(result.data))
         return staff
