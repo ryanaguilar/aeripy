@@ -1,2 +1,1 @@
-from aeripy.exceptions import AeripyException
-from aeripy.models import Result
+from aeripy.aeripy_api import AeripyApi

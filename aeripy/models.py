@@ -3,7 +3,7 @@ from typing import List, Dict, Any, Union, Optional
 from datetime import datetime
 from requests.structures import CaseInsensitiveDict
 from enum import Enum
-from aeripy import AeripyException
+
 
 
 class Result:

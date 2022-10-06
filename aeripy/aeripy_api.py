@@ -1,8 +1,8 @@
 import logging
 from typing import Iterator, Callable, Union, Optional, List
-from aeripy.rest_adapter import RestAdapter
-from aeripy.exceptions import AeripyException
-from aeripy.models import *
+from .rest_adapter import RestAdapter
+from .exceptions import AeripyException
+from .models import *
 from .endpoints import API_PATH
 from .models import SystemInfo, School
 from .util.snake import snake_case_keys, camel_case_keys
