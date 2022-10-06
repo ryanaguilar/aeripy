@@ -82,7 +82,9 @@ class AeripyApi:
         staff = StaffElement(**snake_case_keys(result.data))
         return staff
 
-    def update_staff(self, data: dict) -> StaffElement:
-        result = self._rest_adapter.put(endpoint=API_PATH["staff"], data=camel_case_keys(data))
+    def update_staff(self, data: dict, staff_id: int = None) -> StaffElement:
+        if staff_id is None:
+            staff_id = data.get("staff_id")
+        result = self._rest_adapter.put(endpoint=API_PATH["staff_id"].format(staff_id=staff_id), data=camel_case_keys(data))
         staff = StaffElement(**snake_case_keys(result.data))
         return staff
