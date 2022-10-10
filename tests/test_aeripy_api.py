@@ -453,6 +453,60 @@ class TestAeripyApi(TestCase):
         for staff in staff_list:
             self.assertIsInstance(staff, StaffElement)
 
+    def test_get_one_staff(self):
+        self.aeripyapi._rest_adapter.get.return_value = Result(200,
+                                                               headers={},
+                                                               data={
+                                                                        "SchoolAccessPermissions": [],
+                                                                        "ExtendedProperties": [],
+                                                                        "EarlyChildhoodCertificationCode": "",
+                                                                        "Gender": "",
+                                                                        "EducationLevelCode": " ",
+                                                                        "EthnicityCode": "",
+                                                                        "RaceCode1": "",
+                                                                        "RaceCode2": "",
+                                                                        "RaceCode3": "",
+                                                                        "RaceCode4": "",
+                                                                        "RaceCode5": "",
+                                                                        "PositionStatusCode": " ",
+                                                                        "TotalYearsOfEduService": 0,
+                                                                        "TotalYearsInThisDistrict": 0,
+                                                                        "PreviousLastName": "",
+                                                                        "PreviousFirstName": "",
+                                                                        "PreviousMiddleName": "",
+                                                                        "NameSuffix": " ",
+                                                                        "Address": "",
+                                                                        "AddressCity": "",
+                                                                        "AddressState": "CA",
+                                                                        "AddressZipCode": " ",
+                                                                        "AddressZipExt": " ",
+                                                                        "HomePhone": "",
+                                                                        "EmergencyContactName": "",
+                                                                        "EmergencyContactPhone": "",
+                                                                        "ID": 990900,
+                                                                        "FirstName": "Grade 0",
+                                                                        "LastName": "",
+                                                                        "MiddleName": "",
+                                                                        "BirthYear": 0,
+                                                                        "BirthDate": None,
+                                                                        "FullTimePercentage": 0,
+                                                                        "HireDate": None,
+                                                                        "LeaveDate": None,
+                                                                        "InactiveStatusCode": " ",
+                                                                        "StateEducatorID": "7777990900",
+                                                                        "UserName": "",
+                                                                        "EmailAddress": "",
+                                                                        "PrimaryAeriesSchool": 990,
+                                                                        "NetworkLoginID": "",
+                                                                        "AlternateEmailAddress": "",
+                                                                        "HumanResourcesSystemID": "",
+                                                                        "CellPhone": "",
+                                                                        "NotificationPreferenceCode": "1",
+                                                                        "Title": ""
+                                                                    })
+        staff = self.aeripyapi.get_staff(90212)
+        self.assertIsInstance(staff, StaffElement)
+
     def test_insert_staff(self):
         self.aeripyapi._rest_adapter.post.return_value = Result(201,
                                                                 headers={},
@@ -575,7 +629,7 @@ class TestAeripyApi(TestCase):
             "first_name":   "Dario",
             "last_name":    "Abbot"
         }
-        staff = self.aeripyapi.update_staff(data=data)
+        staff = self.aeripyapi.update_staff(staff_id=90212, data=data)
         self.assertIsInstance(staff, StaffElement)
 
     def test_update_staff_no_match_autogen_off(self):
@@ -634,7 +688,7 @@ class TestAeripyApi(TestCase):
             "first_name":   "Dylan",
             "last_name":    "McKay"
         }
-        staff = self.aeripyapi.update_staff(data=data)
+        staff = self.aeripyapi.update_staff(staff_id=90212,data=data)
         self.assertIsInstance(staff, StaffElement)
 
     def test_update_staff_no_match_autogen_on(self):
@@ -651,3 +705,4 @@ class TestAeripyApi(TestCase):
             "last_name":    "McKay"
         }
         self.assertRaises(AeripyException)
+
