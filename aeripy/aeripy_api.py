@@ -73,11 +73,13 @@ class Aeripy:
     def get_staff(self, staff_id: int = None) -> List[StaffElement]:
         if staff_id is not None:
             endpoint = API_PATH['staff_id'].format(staff_id=staff_id)
+            result = self._rest_adapter.get(endpoint=endpoint)
+            staff = StaffElement(**snake_case_keys(result.data))
         else:
             endpoint = API_PATH['staff']
-        result = self._rest_adapter.get(endpoint=endpoint)
-        staff_list = [StaffElement(**snake_case_keys(datum)) for datum in result.data]
-        return staff_list
+            result = self._rest_adapter.get(endpoint=endpoint)
+            staff = [StaffElement(**snake_case_keys(datum)) for datum in result.data]
+        return staff
 
     def insert_staff(self, data: dict) -> StaffElement:
         result = self._rest_adapter.post(endpoint=API_PATH["staff"], data=camel_case_keys(data))
