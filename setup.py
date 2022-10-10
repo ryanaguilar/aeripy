@@ -9,13 +9,13 @@ from os import path
 HERE = path.abspath(path.dirname(__file__))
 
 # Get the long description from the README file
-with open(path.join(HERE, 'README.md'), encoding='utf-8') as f:
+with open(path.join(HERE, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 # This call to setup() does all the work
 setup(
     name="aeripy",
-    version="0.1.3",
+    version="0.2.0",
     description="Aeries API Python Adapter",
     long_description=long_description,
     long_description_content_type="text/markdown",
