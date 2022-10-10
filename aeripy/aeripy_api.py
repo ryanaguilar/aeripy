@@ -9,7 +9,7 @@ from .models import SystemInfo, School
 from .utils import snake_case_keys, camel_case_keys
 
 
-class AeripyApi:
+class Aeripy:
     def __init__(self, hostname: str = "demo.aeries.net/aeries/api", api_key: str = '477abe9e7d27439681d62f4e0de1f5e1',
                  ver: str = 'v5',
                  ssl_verify: str = '', logger: logging.Logger = None, page_size: int = 5):

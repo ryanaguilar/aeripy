@@ -1,13 +1,13 @@
 from unittest import TestCase
 from unittest.mock import MagicMock
-from aeripy.aeripy_api import AeripyApi
+from aeripy.aeripy_api import Aeripy
 from aeripy.models import School, SystemInfo, Result, Term, BellScheduleElement, StaffElement
 from aeripy.exceptions import AeripyException
 
 
 class TestAeripyApi(TestCase):
     def setUp(self) -> None:
-        self.aeripyapi = AeripyApi()
+        self.aeripyapi = Aeripy()
         self.aeripyapi._rest_adapter = MagicMock()
 
     def test_get_system_info(self):

@@ -1,1 +1,1 @@
-from aeripy.aeripy_api import AeripyApi
+from aeripy.aeripy_api import Aeripy
