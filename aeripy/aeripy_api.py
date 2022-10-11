@@ -25,9 +25,26 @@ class Aeripy:
         )
 
     """
-    def __init__(self, hostname: str = "demo.aeries.net/aeries/api", api_key: str = '477abe9e7d27439681d62f4e0de1f5e1',
+    def __init__(self, hostname: str = "demo.aeries.net/aeries/api",
+                 api_key: str = '477abe9e7d27439681d62f4e0de1f5e1',
                  ver: str = 'v5',
-                 ssl_verify: str = '', logger: logging.Logger = None, page_size: int = 5):
+                 ssl_verify: str = '',
+                 logger: logging.Logger = None,
+                 page_size: int = 5):
+        """
+        Initialize a :class:`Aeripy` instance.
+        :param hostname: The base url of the Aeries SIS with the path /api on the end
+        :param api_key: This api_key is found in Aeries->Security->API security. See Aeries documentation for details.
+            This should be set as an environment variable.
+        :param ver: default version is v5
+        :param ssl_verify: The path to your SSL cert must be provided if your district uses SSL inspection
+        :param logger: default logger
+        :param page_size:
+
+        Required parameters are:
+
+        Currently no parameters are required because the ``hostname`` and ``api_key`` are set to the demo database
+        """
         self._rest_adapter = RestAdapter(hostname, api_key, ver, ssl_verify, logger)
         self._page_size = page_size
 
