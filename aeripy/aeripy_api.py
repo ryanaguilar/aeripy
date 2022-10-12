@@ -100,7 +100,7 @@ class Aeripy:
         absence_code = AbsenceCodeElement(*snake_case_keys(result.data))
         return absence_code
 
-    def get_staff(self, staff_id: int = None) -> Optional[List[StaffElement], StaffElement]:
+    def get_staff(self, staff_id: int = None) -> List[StaffElement]:
         """Return objects from a GET request to the ``staff`` endpoint.
         :param staff_id: Int, ID of staff to get. None to request all staff (default: ``None``).
         :return: All staff will be returned if no staff_id is supplied
