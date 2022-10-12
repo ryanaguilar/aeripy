@@ -126,6 +126,19 @@ class Aeripy:
         return staff
 
     def update_staff(self, data: dict, staff_id: int = None) -> StaffElement:
+        """
+        Update staff using PUT.
+        A 200 status will be returned if staff exists.
+        A 201 status will be returned if staff was created.
+
+        :param data: Dict, If property is omitted or null, it will be ignored.  An empty string is a valid value.
+        Except in the case of LeaveDate, which will be nulled if it is omitted.
+        :param staff_id: Int,
+         If staff_id is supplied, but doesn't exist:
+         - if auto-generate IDs IS NOT enabled, a new record will be created
+         - if auto-generate IDs IS enabled, an error will be generated
+        :return:
+        """
         if staff_id is None:
             staff_id = data.get("staff_id")
         result = self._rest_adapter.put(endpoint=API_PATH["staff_id"].format(staff_id=staff_id), data=camel_case_keys(data))
