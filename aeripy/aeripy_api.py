@@ -4,7 +4,7 @@ from .rest_adapter import RestAdapter
 from .models import *
 from .endpoints import API_PATH
 from .models import SystemInfo, School
-from .utils import snake_case_keys, camel_case_keys
+from .util import snake_case_keys, camel_case_keys
 
 
 class Aeripy:
