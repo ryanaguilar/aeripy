@@ -1,8 +1,6 @@
 """Provide the Aeripy class"""
 import logging
-from typing import Iterator, Callable, Union, Optional, List
 from .rest_adapter import RestAdapter
-from .exceptions import AeripyException
 from .models import *
 from .endpoints import API_PATH
 from .models import SystemInfo, School
@@ -68,7 +66,7 @@ class Aeripy:
         terms_list = [Term(**snake_case_keys(datum)) for datum in result.data]
         return terms_list
 
-    def get_bell_schedules(self, school_code: int, date: int=None) -> List[BellScheduleElement]:
+    def get_bell_schedules(self, school_code: int, date: int = None) -> List[BellScheduleElement]:
         if date is not None:
             endpoint = API_PATH['bell_schedule_date'].format(school_code=school_code, date=date)
         else:
@@ -79,8 +77,8 @@ class Aeripy:
 
     def get_bell_schedule(self, school_code: int, date: str) -> BellScheduleElement:
         result = self.get_bell_schedules(school_code, date)
-        bell_schedule = BellScheduleElement(**snake_case_keys(result.data))
-        return bell_schedule
+        bell_schedule_list = BellScheduleElement(**snake_case_keys(result.data[0]))
+        return bell_schedule_list
 
     def get_calendar(self, school_code: int) -> List[CalendarElement]:
         result = self._rest_adapter.get(endpoint=API_PATH["calendar"].format(school_code=school_code))
@@ -102,7 +100,11 @@ class Aeripy:
         absence_code = AbsenceCodeElement(*snake_case_keys(result.data))
         return absence_code
 
-    def get_staff(self, staff_id: int = None) -> List[StaffElement]:
+    def get_staff(self, staff_id: int = None) -> Optional[List[StaffElement], StaffElement]:
+        """Return objects from a GET request to the ``staff`` endpoint.
+        :param staff_id: Int, ID of staff to get. None to request all staff (default: ``None``).
+        :return: All staff will be returned if no staff_id is supplied
+        """
         if staff_id is not None:
             endpoint = API_PATH['staff_id'].format(staff_id=staff_id)
             result = self._rest_adapter.get(endpoint=endpoint)
