@@ -116,6 +116,11 @@ class Aeripy:
         return staff
 
     def insert_staff(self, data: dict) -> StaffElement:
+        """
+        Inserts staff into the Aeries SIS using POST. After a successful request, this end point returns HTTP status code 201, and the response body contains the "Staff" object that was just created.
+        :param data: Dict, the data to create the staff with.
+        :return:
+        """
         result = self._rest_adapter.post(endpoint=API_PATH["staff"], data=camel_case_keys(data))
         staff = StaffElement(**snake_case_keys(result.data))
         return staff
