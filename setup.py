@@ -22,7 +22,7 @@ setup(
     url="https://aeripy.readthedocs.io/",
     author="Ryan Aguilar",
     author_email="ryanaguilar323@gmail.com",
-    license="BSD 2-Clause ",
+    license="",
     classifiers=[
         "Intended Audience :: Developers",
         "License :: OSI Approved :: BSD License",
