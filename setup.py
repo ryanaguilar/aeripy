@@ -15,7 +15,7 @@ with open(path.join(HERE, 'README.rst'), encoding='utf-8') as f:
 # This call to setup() does all the work
 setup(
     name="aeripy",
-    version="0.2.0",
+    version="0.2.1",
     description="Aeries API Python Adapter",
     long_description=long_description,
     long_description_content_type="text/markdown",
