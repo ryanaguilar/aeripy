@@ -1,8 +1,6 @@
+"""Provide the Aeripy class"""
 import logging
-from typing import Iterator, Callable, Union, Optional, List
-
 from .rest_adapter import RestAdapter
-from .exceptions import AeripyException
 from .models import *
 from .endpoints import API_PATH
 from .models import SystemInfo, School
@@ -10,9 +8,41 @@ from .utils import snake_case_keys, camel_case_keys
 
 
 class Aeripy:
-    def __init__(self, hostname: str = "demo.aeries.net/aeries/api", api_key: str = '477abe9e7d27439681d62f4e0de1f5e1',
+    """
+    The Aeripy class provides access to the Aeries API.
+
+    Instances of this class are the primary way to interact with the Aeries API.  To obtain and instance of this class:
+
+    .. code-block:: python
+
+        from aeripy import Aeripy
+
+        aeries = Aeripy(
+            hostname="demo.aeries.net/aeries/api",
+            api_key="477abe9e7d27439681d62f4e0de1f5e1"
+        )
+
+    """
+    def __init__(self, hostname: str = "demo.aeries.net/aeries/api",
+                 api_key: str = '477abe9e7d27439681d62f4e0de1f5e1',
                  ver: str = 'v5',
-                 ssl_verify: str = '', logger: logging.Logger = None, page_size: int = 5):
+                 ssl_verify: str = '',
+                 logger: logging.Logger = None,
+                 page_size: int = 5):
+        """
+        Initialize a :class:`Aeripy` instance.
+        :param hostname: The base url of the Aeries SIS with the path /api on the end
+        :param api_key: This api_key is found in Aeries->Security->API security. See Aeries documentation for details.
+            This should be set as an environment variable.
+        :param ver: default version is v5
+        :param ssl_verify: The path to your SSL cert must be provided if your district uses SSL inspection
+        :param logger: default logger
+        :param page_size:
+
+        Required parameters are:
+
+        Currently no parameters are required because the ``hostname`` and ``api_key`` are set to the demo database
+        """
         self._rest_adapter = RestAdapter(hostname, api_key, ver, ssl_verify, logger)
         self._page_size = page_size
 
@@ -36,7 +66,7 @@ class Aeripy:
         terms_list = [Term(**snake_case_keys(datum)) for datum in result.data]
         return terms_list
 
-    def get_bell_schedules(self, school_code: int, date: int=None) -> List[BellScheduleElement]:
+    def get_bell_schedules(self, school_code: int, date: int = None) -> List[BellScheduleElement]:
         if date is not None:
             endpoint = API_PATH['bell_schedule_date'].format(school_code=school_code, date=date)
         else:
@@ -47,8 +77,8 @@ class Aeripy:
 
     def get_bell_schedule(self, school_code: int, date: str) -> BellScheduleElement:
         result = self.get_bell_schedules(school_code, date)
-        bell_schedule = BellScheduleElement(**snake_case_keys(result.data))
-        return bell_schedule
+        bell_schedule_list = BellScheduleElement(**snake_case_keys(result.data[0]))
+        return bell_schedule_list
 
     def get_calendar(self, school_code: int) -> List[CalendarElement]:
         result = self._rest_adapter.get(endpoint=API_PATH["calendar"].format(school_code=school_code))
@@ -70,7 +100,11 @@ class Aeripy:
         absence_code = AbsenceCodeElement(*snake_case_keys(result.data))
         return absence_code
 
-    def get_staff(self, staff_id: int = None) -> List[StaffElement]:
+    def get_staff(self, staff_id: int = None) -> Optional[List[StaffElement], StaffElement]:
+        """Return objects from a GET request to the ``staff`` endpoint.
+        :param staff_id: Int, ID of staff to get. None to request all staff (default: ``None``).
+        :return: All staff will be returned if no staff_id is supplied
+        """
         if staff_id is not None:
             endpoint = API_PATH['staff_id'].format(staff_id=staff_id)
             result = self._rest_adapter.get(endpoint=endpoint)
@@ -82,11 +116,29 @@ class Aeripy:
         return staff
 
     def insert_staff(self, data: dict) -> StaffElement:
+        """
+        Inserts staff into the Aeries SIS using POST. After a successful request, this end point returns HTTP status code 201, and the response body contains the "Staff" object that was just created.
+        :param data: Dict, the data to create the staff with.
+        :return:
+        """
         result = self._rest_adapter.post(endpoint=API_PATH["staff"], data=camel_case_keys(data))
         staff = StaffElement(**snake_case_keys(result.data))
         return staff
 
     def update_staff(self, data: dict, staff_id: int = None) -> StaffElement:
+        """
+        Update staff using PUT.
+        A 200 status will be returned if staff exists.
+        A 201 status will be returned if staff was created.
+
+        :param data: Dict, If property is omitted or null, it will be ignored.  An empty string is a valid value.
+        Except in the case of LeaveDate, which will be nulled if it is omitted.
+        :param staff_id: Int,
+         If staff_id is supplied, but doesn't exist:
+         - if auto-generate IDs IS NOT enabled, a new record will be created
+         - if auto-generate IDs IS enabled, an error will be generated
+        :return:
+        """
         if staff_id is None:
             staff_id = data.get("staff_id")
         result = self._rest_adapter.put(endpoint=API_PATH["staff_id"].format(staff_id=staff_id), data=camel_case_keys(data))
