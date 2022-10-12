@@ -49,5 +49,5 @@ class TestRestAdapter(TestCase):
         self.response.status_code = 200
         self.response._content = "{}".encode()
         with mock.patch("requests.request", return_value=self.response) as request:
-            self.rest_adapter.get('')
+            self.rest_adapter.get(endpoint='')
             self.assertTrue(request.method, 'GET')
