@@ -11,7 +11,8 @@ install:
   - pip install -r requirements.txt
 
 script:
-  - python -m unittest tests/multiplication_tests.py
+  - python -m unittest tests/test_aeripy_api.py
+  - python -m unittest tests/test_rest_adapter.py
 
 deploy:
   provider: pypi
