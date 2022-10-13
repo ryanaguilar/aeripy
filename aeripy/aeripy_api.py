@@ -47,6 +47,10 @@ class Aeripy:
         self._page_size = page_size
 
     def get_system_info(self) -> SystemInfo:
+        """
+        Gets information about the target Aeries SIS.
+        :return: Dict, includes Aeries version, database year, available database years, local timezone and current time
+        """
         result = self._rest_adapter.get(endpoint=API_PATH["system_info"])
         sys_info = SystemInfo(**snake_case_keys(result.data))
         return sys_info
