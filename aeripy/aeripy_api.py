@@ -31,17 +31,14 @@ class Aeripy:
                  page_size: int = 5):
         """
         Initialize a :class:`Aeripy` instance.
+
         :param hostname: The base url of the Aeries SIS with the path /api on the end
-        :param api_key: This api_key is found in Aeries->Security->API security. See Aeries documentation for details.
-            This should be set as an environment variable.
+        :param api_key: This api_key is found in Aeries->Security->API security. See Aeries documentation for details
         :param ver: default version is v5
         :param ssl_verify: The path to your SSL cert must be provided if your district uses SSL inspection
         :param logger: default logger
         :param page_size:
 
-        Required parameters are:
-
-        There are currently no parameters are required because the ``hostname`` and ``api_key`` are set to the demo database
         """
         self._rest_adapter = RestAdapter(hostname, api_key, ver, ssl_verify, logger)
         self._page_size = page_size
@@ -66,7 +63,8 @@ class Aeripy:
 
     def get_school(self, school_code: int) -> School:
         """
-        Gets info about a specific school.  If the schools does not exist an HTTP 404 error is returned.
+        Gets info about a specific school.  If the schools does not exist an HTTP 404 error is returned
+
         :param school_code: Int, required
         :return: School
         """
@@ -76,8 +74,9 @@ class Aeripy:
 
     def get_terms(self, school_code: int) -> List[Term]:
         """
-        Gets a list of terms for the school.
-        :param school_code: Int, required.
+        Gets a list of terms for the school
+
+        :param school_code: Int, required
         :return: List[Term]
         """
         result = self._rest_adapter.get(endpoint=API_PATH['terms'].format(school_code=school_code))
@@ -86,11 +85,10 @@ class Aeripy:
 
     def get_bell_schedules(self, school_code: int, date: str = None) -> List[BellScheduleElement]:
         """
-        Gets bell schedules for all schools.
-        A date can be supplied to get the schedule for a specific date.  Or use get_bell_schedule().
-        If the date does not fall on a school day, an HTTP 400 error will be returned.
-        :param school_code: Int, required.
-        :param date: Str, optional, in the format "mm-dd-yyyy".
+        Gets bell schedules for all schools. A date can be supplied to get the schedule for a specific date
+
+        :param school_code: Int, required
+        :param date: Str, optional, in the format mm-dd-yyyy
         :return: List[BellScheduleElement]
         """
         if date is not None:
@@ -148,8 +146,9 @@ class Aeripy:
         return staff
 
     def insert_staff(self, data: dict) -> StaffElement:
-        """
-        Inserts staff into the Aeries SIS using POST. After a successful request, this end point returns HTTP status code 201, and the response body contains the "Staff" object that was just created.
+        """Inserts staff into the Aeries SIS using POST. After a successful request,
+        this end point returns HTTP status code 201,
+        and the response body contains the ``staff`` object that was just created.
         :param data: Dict, the data to create the staff with.
         :return:
         """
@@ -162,13 +161,10 @@ class Aeripy:
         Update staff using PUT.
         A 200 status will be returned if staff exists.
         A 201 status will be returned if staff was created.
-
         :param data: Dict, If property is omitted or null, it will be ignored.  An empty string is a valid value.
         Except in the case of LeaveDate, which will be nulled if it is omitted.
-        :param staff_id: Int,
-         If staff_id is supplied, but doesn't exist:
-         - if auto-generate IDs IS NOT enabled, a new record will be created
-         - if auto-generate IDs IS enabled, an error will be generated
+        :param staff_id: Int, If staff_id is supplied, but doesn't exist, and if auto-generate IDs IS NOT enabled,
+        a new record will be created. If auto-generate IDs IS enabled, an error will be generated
         :return:
         """
         if staff_id is None:
