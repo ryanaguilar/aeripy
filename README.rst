@@ -20,7 +20,7 @@ ___________
 The following example uses the Aeries demo database URL and API key.
 Both are found in their `documentation <https://support.aeries.com/support/solutions/articles/14000113681-aeries-api-building-a-request>`_.
 
-To use this module with your own Aeries database, you will need your district's URL and API key.  See below for details.
+To use this module with your own Aeries database, you will need your district's URL and API key.  See the below `section <urlapi>`_ for details.
 
 .. code-block:: python3
 
@@ -39,6 +39,8 @@ To use this module with your own Aeries database, you will need your district's 
 
     staff
     # Output
+
+.. _urlapi:
 
 Aeries URL and API key
 ------------------------
