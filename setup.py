@@ -18,7 +18,6 @@ setup(
     version="0.2.4",
     description="Aeries API Python Adapter",
     long_description=long_description,
-    long_description_content_type="text/markdown",
     url="https://aeripy.readthedocs.io/",
     author="Ryan Aguilar",
     author_email="ryanaguilar323@gmail.com",

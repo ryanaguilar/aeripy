@@ -15,10 +15,6 @@ Aeripy is supported on Python 3.8+. The recommended way to install Aeripy is via
 Quickstart
 ___________
 
-The below example uses the Aeries demo database API_KEY and API url.
-Both are found in their `_documentation <https://support.aeries.com/support/solutions/articles/14000113681-aeries-api-building-a-request>`_.
-
-
 .. code-block:: python3
 
     from aeripy import AeripyApi
