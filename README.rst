@@ -1,7 +1,7 @@
 Aeripy
 ======
 
-Aeripy is a Python adapter for the Aeries SIS API.
+Aeripy is a Python adapter for the Aeries SIS API.  It is essentially a wrapper for the popular `requests <https://github.com/psf/requests> `_ library.
 
 Note: Aeripy is in no way affiliated with Aeries Software, Inc. This module is based on their publicly available documentation.
 
