@@ -24,7 +24,7 @@ To use this module with your own Aeries database, you will need your district's 
 
 .. code-block:: python3
 
-    from aeripy import AeripyApi
+    from aeripy import Aeripy
 
     # Aeries Demo Database
     hostname = "demo.aeries.net/aeries/api"
