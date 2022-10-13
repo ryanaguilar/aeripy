@@ -1,4 +1,4 @@
-AeriPy
+Aeripy
 ======
 
 AeriPy is a Python adapter for the Aeries SIS API.
