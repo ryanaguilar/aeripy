@@ -88,8 +88,9 @@ class Aeripy:
         """
         Gets bell schedules for all schools.
         A date can be supplied to get the schedule for a specific date.  Or use get_bell_schedule().
+        If the date does not fall on a school day, an HTTP 400 error will be returned.
         :param school_code: Int, required.
-        :param date: Str, optional.
+        :param date: Str, optional, in the format "mm-dd-yyyy".
         :return: List[BellScheduleElement]
         """
         if date is not None:
@@ -102,9 +103,9 @@ class Aeripy:
 
     def get_bell_schedule(self, school_code: int, date: str) -> BellScheduleElement:
         """
-        Gets bell schedule for individual school.
+        Gets bell schedule for individual school.  If the date is not a school day
         :param school_code: Int, required.
-        :param date: Str, required.
+        :param date: Str, required, in the format "mm-dd-yyyy".
         :return: BellScheduleElement
         """
         result = self.get_bell_schedules(school_code, date)
