@@ -3,9 +3,7 @@ Aeripy
 
 Aeripy is a Python adapter for the Aeries SIS API.
 
-.. note::
-
-    Aeripy is in no way affiliated with Aeries Software, Inc. This module is based on their publicly available documentation.
+Note: Aeripy is in no way affiliated with Aeries Software, Inc. This module is based on their publicly available documentation.
 
 Installation
 -------------
