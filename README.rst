@@ -1,12 +1,12 @@
 Aeripy
 ======
 
-AeriPy is a Python adapter for the Aeries SIS API.
+Aeripy is a Python adapter for the Aeries SIS API.
 
 Installation
 -------------
 
-AeriPy is supported on Python 3.8+. The recommended way to install AeriPy is via pip.
+Aeripy is supported on Python 3.8+. The recommended way to install AeriPy is via pip.
 
 .. code-block:: bash
 
