@@ -6,6 +6,14 @@
 Welcome to Aeripy's documentation!
 ==================================
 
+.. _getting_started:
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Getting Started
+
+    getting_started/quick_start
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
