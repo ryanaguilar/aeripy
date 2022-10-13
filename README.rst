@@ -18,7 +18,14 @@ ___________
 .. code-block:: python3
 
     from aeripy import AeripyApi
-    aeries = AeripyApi(hostname='demo.aeries.net/aeries/api/', api_key='477abe9e7d27439681d62f4e0de1f5e1')
+
+    # Aeries Demo Database
+    hostname = "demo.aeries.net/aeries/api"
+
+    # Aeries Demo API Key
+     api_key = "477abe9e7d27439681d62f4e0de1f5e1"
+
+    aeries = Aeripy(hostname=hostname, api_key=api_key)
 
     # Get all staff
     staff = aeries.get_staff()
