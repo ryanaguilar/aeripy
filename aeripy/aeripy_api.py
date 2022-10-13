@@ -41,32 +41,58 @@ class Aeripy:
 
         Required parameters are:
 
-        Currently no parameters are required because the ``hostname`` and ``api_key`` are set to the demo database
+        There are currently no parameters are required because the ``hostname`` and ``api_key`` are set to the demo database
         """
         self._rest_adapter = RestAdapter(hostname, api_key, ver, ssl_verify, logger)
         self._page_size = page_size
 
     def get_system_info(self) -> SystemInfo:
+        """
+        Gets information about the target Aeries SIS.
+        :return: SystemInfo
+        """
         result = self._rest_adapter.get(endpoint=API_PATH["system_info"])
         sys_info = SystemInfo(**snake_case_keys(result.data))
         return sys_info
 
     def get_schools(self) -> List[School]:
+        """
+        Gets all the schools in the Aeries system.  To get info about one school, use get_school().
+        :return: List[School], a list of all schools in Aeries
+        """
         result = self._rest_adapter.get(endpoint=API_PATH['schools'])
         schools_list = [School(**snake_case_keys(datum)) for datum in result.data]
         return schools_list
 
     def get_school(self, school_code: int) -> School:
+        """
+        Gets info about a specific school.  If the schools does not exist an HTTP 404 error is returned.
+        :param school_code: Int, required
+        :return: School
+        """
         result = self._rest_adapter.get(endpoint=API_PATH['school'].format(school_code=school_code))
         school = School(**snake_case_keys(result.data))
         return school
 
     def get_terms(self, school_code: int) -> List[Term]:
+        """
+        Gets a list of terms for the school.
+        :param school_code: Int, required.
+        :return: List[Term]
+        """
         result = self._rest_adapter.get(endpoint=API_PATH['terms'].format(school_code=school_code))
         terms_list = [Term(**snake_case_keys(datum)) for datum in result.data]
         return terms_list
 
-    def get_bell_schedules(self, school_code: int, date: int = None) -> List[BellScheduleElement]:
+    def get_bell_schedules(self, school_code: int, date: str = None) -> List[BellScheduleElement]:
+        """
+        Gets bell schedules for all schools.
+        A date can be supplied to get the schedule for a specific date.  Or use get_bell_schedule().
+        If the date does not fall on a school day, an HTTP 400 error will be returned.
+        :param school_code: Int, required.
+        :param date: Str, optional, in the format "mm-dd-yyyy".
+        :return: List[BellScheduleElement]
+        """
         if date is not None:
             endpoint = API_PATH['bell_schedule_date'].format(school_code=school_code, date=date)
         else:
@@ -76,6 +102,12 @@ class Aeripy:
         return bell_schedules
 
     def get_bell_schedule(self, school_code: int, date: str) -> BellScheduleElement:
+        """
+        Gets bell schedule for individual school.  If the date is not a school day
+        :param school_code: Int, required.
+        :param date: Str, required, in the format "mm-dd-yyyy".
+        :return: BellScheduleElement
+        """
         result = self.get_bell_schedules(school_code, date)
         bell_schedule_list = BellScheduleElement(**snake_case_keys(result.data[0]))
         return bell_schedule_list
