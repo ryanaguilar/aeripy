@@ -15,10 +15,10 @@ with open(path.join(HERE, 'README.rst'), encoding='utf-8') as f:
 # This call to setup() does all the work
 setup(
     name="aeripy",
-    version="0.2.4",
+    version="0.2.5",
     description="Aeries API Python Adapter",
     long_description=long_description,
-    long_description_content_type="text/markdown",
+    long_description_content_type="text/x-rst",
     url="https://aeripy.readthedocs.io/",
     author="Ryan Aguilar",
     author_email="ryanaguilar323@gmail.com",
