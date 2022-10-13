@@ -49,18 +49,27 @@ class Aeripy:
     def get_system_info(self) -> SystemInfo:
         """
         Gets information about the target Aeries SIS.
-        :return: Dict, includes Aeries version, database year, available database years, local timezone and current time
+        :return: SystemInfo
         """
         result = self._rest_adapter.get(endpoint=API_PATH["system_info"])
         sys_info = SystemInfo(**snake_case_keys(result.data))
         return sys_info
 
     def get_schools(self) -> List[School]:
+        """
+        Gets all the schools in the Aeries system.  To get info about one school, use get_school().
+        :return: List[School], a list of all schools in Aeries
+        """
         result = self._rest_adapter.get(endpoint=API_PATH['schools'])
         schools_list = [School(**snake_case_keys(datum)) for datum in result.data]
         return schools_list
 
     def get_school(self, school_code: int) -> School:
+        """
+        Gets info about a specific school.  If the schools does not exist an HTTP 404 error is returned.
+        :param school_code: Int, required
+        :return: School
+        """
         result = self._rest_adapter.get(endpoint=API_PATH['school'].format(school_code=school_code))
         school = School(**snake_case_keys(result.data))
         return school
