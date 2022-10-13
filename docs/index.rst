@@ -5,11 +5,6 @@
 
 Aeripy
 ==================================
-.. image:: https://img.shields.io/pypi/v/aeripy.svg
-   :target: https://pypi.org/project/aeripy/
-
-.. image:: https://img.shields.io/pypi/pyversions/aeripy.svg
-   :target: https://pypi.org/project/aeripy/
 
 
 Aeripy is a Python adapter for the Aeries SIS API.
