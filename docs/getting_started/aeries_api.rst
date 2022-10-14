@@ -2,7 +2,7 @@ Aeries API
 ==================
 
 The Aeries API is fairly standard as far as REST APIs go and the endpoint structure is relatively straightforward.
-Although the documentation is a little scattered, it is pretty complete.
+Although the `documentation <https://support.aeries.com/support/solutions/14000072323>`_ is a little scattered, it is pretty complete.
 
 The documentation is grouped into roughly 7 sections:
 
@@ -25,3 +25,4 @@ For example, gradebook related data can be found on the schools, staff and stude
 * /api/v5/staff/{StaffID}/gradebooks
 * /api/v5/schools/{SchoolCode}/sections/{SectionNumber}/gradebooks
 * /api/v5/gradebooks/{GradebookNumber}
+
