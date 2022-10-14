@@ -23,8 +23,6 @@ Aeripy is a Python adapter for the Aeries SIS API.
    :caption: Code Samples
 
    code_samples/csv
-   code_samples/csvs/export_to_csv
-   code_samples/csvs/upsert_from_csv
 
 .. toctree::
    :maxdepth: 2
