@@ -24,12 +24,8 @@ Aeripy is supported on Python 3.8+. The recommended way to install Aeripy is via
 Quickstart
 ___________
 
-<<<<<<< Updated upstream
 The following example uses the Aeries demo database URL and API key.
 Both are found in their `documentation <https://support.aeries.com/support/solutions/articles/14000113681-aeries-api-building-a-request>`_.
-=======
-
->>>>>>> Stashed changes
 
 To use this module with your own Aeries database, you will need your district's URL and API key.  See the `URL and API Key`_ section for details.
 
