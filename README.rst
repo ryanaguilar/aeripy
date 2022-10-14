@@ -6,7 +6,9 @@ Aeripy
 .. image:: https://img.shields.io/pypi/pyversions/aeripy.svg
    :target: https://pypi.org/project/aeripy/
 
-Aeripy is a Python adapter for the Aeries SIS API.  It is essentially a wrapper for the popular `requests <https://github.com/psf/requests>`_ library.
+Aeripy is a Python adapter for the Aeries Student Information System API.  It's goal is to simplify interaction with your district's Aeries database.
+
+This library is mostly a wrapper for the popular `requests <https://github.com/psf/requests>`_ library.
 
 Note: Aeripy is in no way affiliated with Aeries Software, Inc. This module is based on their publicly available documentation.
 
