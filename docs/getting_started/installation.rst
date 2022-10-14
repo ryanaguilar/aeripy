@@ -1,18 +1,19 @@
 Installation
 ============
 
-Installing using pip
+Installing from PyPI
 ---------------------
 
 .. code:: python3
 
     pip install aeripy
 
-Using your favorite text editor, create a file called `.env`, or copy the `.env.example` file from the `aeripy repo <https://github.com/ryanaguilar/aeripy/>`_ .
-
-The file only needs to define 2 variables.
+Installing from the repo
+---------------------
 
 .. code::
 
-     AERIES_URL='
+    git clone https://github.com/ryanaguilar/aeripy
+    cd aeripy
+    pip install -i requirements.txt
 
