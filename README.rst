@@ -62,7 +62,7 @@ To use this module with your own Aeries database, you will need your district's 
     # Output:
     # 994748
 
-Check out the `documentation <https://aeripy.readthedocs.io>`_ for a list of currently supported methods and more examples.
+Check out the `full documentation <https://aeripy.readthedocs.io>`_ for a list of currently supported methods and more examples.
 
 URL and API Key
 ------------------------
