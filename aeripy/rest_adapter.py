@@ -7,14 +7,14 @@ from aeripy.models import Result
 
 
 class RestAdapter:
-    def __init__(self, hostname: str = 'demo.aeries.net/aeries/api',
-                 api_key: str = '477abe9e7d27439681d62f4e0de1f5e1', ver: str = 'v5',
+    def __init__(self, hostname: str,
+                 api_key: str, ver: str = 'v5',
                  ssl_verify: str = '',
                  logger: logging.Logger = None):
         """
         Constructor for RestAdapter
-        :param hostname: Demo Aeries site is the default
-        :param api_key: Demo Aeries site key is the default
+        :param hostname: URL of the Aeries instance. Required
+        :param api_key: API key of the Aeries instance. Required
         :param ver: v5 is the default
         :param ssl_verify: True by default, but can also take a PEM path for testing
         :param logger: (optional) If your app has a logger, pass it here

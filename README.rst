@@ -29,15 +29,21 @@ Both are found in their `documentation <https://support.aeries.com/support/solut
 
 To use this module with your own Aeries database, you will need your district's URL and API key.  See the `URL and API Key`_ section for details.
 
+Load the demo url and api key from the .env.example file (in production you will create and use your own .env file).
+
+.. code-block:: python3
+
+    from dotenv import load_dotenv
+    load_dotenv('./.env.example')
+
+    hostname = os.getenv('AERIES_URL')
+    api_key = os.getenv('API_KEY')
+
+Create an Aeripy instance and use that to interact with the API.
+
 .. code-block:: python3
 
     from aeripy import Aeripy
-
-    # Aeries Demo Database
-    hostname = "demo.aeries.net/aeries/api"
-
-    # Aeries Demo API Key
-    api_key = "477abe9e7d27439681d62f4e0de1f5e1"
 
     aeries = Aeripy(hostname=hostname, api_key=api_key)
 
