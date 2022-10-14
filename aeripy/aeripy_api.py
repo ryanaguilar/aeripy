@@ -23,8 +23,8 @@ class Aeripy:
         )
 
     """
-    def __init__(self, hostname: str = "demo.aeries.net/aeries/api",
-                 api_key: str = '477abe9e7d27439681d62f4e0de1f5e1',
+    def __init__(self, hostname: str,
+                 api_key: str,
                  ver: str = 'v5',
                  ssl_verify: str = '',
                  logger: logging.Logger = None,
