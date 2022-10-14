@@ -10,7 +10,15 @@ Aeripy
 Aeripy is a Python adapter for the Aeries SIS API.
 It is not difficult to use the ``requests`` library to interact with the Aeries API,
 but Aeripy reduces the amount of boilerplate code needed to construct a request,
-and turns most requests into one or two lines of code (including the import statement).
+and turns most requests into a few lines of code (including the import statement).
+
+For example, to get all of the staff from a district you simply:
+
+.. code:: python3
+
+   from aeripy import Aeripy
+   aeries = Aeripy(hostname=hostname, api_key=api_key)
+   aeries.get_staff()
 
 Current State of Development
 -----------------------------
