@@ -42,10 +42,27 @@ To use this module with your own Aeries database, you will need your district's 
     aeries = Aeripy(hostname=hostname, api_key=api_key)
 
     # Get all staff
-    staff = aeries.get_staff()
+    staff_list = aeries.get_staff()
 
-    staff
-    # Output
+    # Print the last name of the 55th staff member
+    print(staff_list[55].last_Name)
+
+    # Output:
+    # Barrows
+
+    # Print the first name of the 55th staff member
+    print(staff_list[55].last_Name)
+
+    # Output:
+    # James
+
+    # Print the ID of the 55th staff member
+    print(staff_list[55].id)
+
+    # Output:
+    # 994748
+
+Check out the `documentation <https://aeripy.readthedocs.io>`_ for a list of currently supported methods and more examples.
 
 URL and API Key
 ------------------------
