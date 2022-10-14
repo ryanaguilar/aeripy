@@ -8,7 +8,8 @@ from aeripy.rest_adapter import RestAdapter
 
 class TestRestAdapter(TestCase):
     def setUp(self) -> None:
-        self.rest_adapter = RestAdapter()
+        self.rest_adapter = RestAdapter(hostname='demo.aeries.net/aeries/api',
+                                        api_key='477abe9e7d27439681d62f4e0de1f5e1')
         self.response = requests.Response()
 
     def tearDown(self) -> None:

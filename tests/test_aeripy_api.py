@@ -7,7 +7,8 @@ from aeripy.exceptions import AeripyException
 
 class TestAeripyApi(TestCase):
     def setUp(self) -> None:
-        self.aeripyapi = Aeripy()
+        self.aeripyapi = Aeripy(hostname='demo.aeries.net/aeries/api',
+                                        api_key='477abe9e7d27439681d62f4e0de1f5e1')
         self.aeripyapi._rest_adapter = MagicMock()
 
     def test_get_system_info(self):
