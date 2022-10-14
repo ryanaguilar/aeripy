@@ -46,7 +46,7 @@ Aeripy currently supports these methods:
 * get_terms()
 
 Eventually, I plan on implementing methods to interact with all of the endpoints covered
-in Aeries documentation, but there is no firm roadmap. As of right now, the next feature will
+in the Aeries documentation, but there is no firm roadmap. As of right now, the next feature will
 be to enable query strings for filtering the requests.
 
 There are a lack of tests in the code and a lack of error handling, which both must be addressed before
