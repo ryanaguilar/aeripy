@@ -5,28 +5,18 @@ from requests.structures import CaseInsensitiveDict
 from enum import Enum
 
 
-
-class Result:
-    def __init__(self, status_code: int, headers: CaseInsensitiveDict, message: str = '', data: List[Dict] = None):
-        """
-        Result returned from low-level RestAdapter
-        :param status_code: Standard HTTP Status code
-        :param message: Human readable result
-        :param data: Python List of Dictionaries (or maybe just a single Dictionary on error)
-        """
-        self.status_code = int(status_code)
-        self.headers = headers
-        self.message = str(message)
-        self.data = data if data else []
-
-
 @dataclass
-class School:
-    aeries_version: str
-    database_year: str
-    available_database_years: List[str]
-    local_time_zone_name: str
-    current_date_time: datetime
+class Result:
+    """
+    Result returned from low-level RestAdapter
+    :param status_code: Standard HTTP Status code
+    :param message: Human readable result
+    :param data: Python List of Dictionaries (or maybe just a single Dictionary on error)
+    """
+    status_code: int
+    headers: dict
+    data: Optional[List[Dict]]
+    message: str = ''
 
 
 @dataclass
