@@ -1,15 +1,15 @@
 Installation
-============
+=============
 
 Installing from PyPI
----------------------
+----------------------
 
 .. code:: python3
 
     pip install aeripy
 
 Installing from the repo
----------------------
+--------------------------
 
 .. code::
 

@@ -15,7 +15,7 @@ Aeripy is a Python adapter for the Aeries SIS API.
     :maxdepth: 1
     :caption: Getting Started
 
-    getting_started/quick_start
+    getting_started/installation
 
 .. toctree::
    :maxdepth: 2
