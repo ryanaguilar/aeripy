@@ -1,1 +1,1 @@
-"""Aeripy Test Suite"""
+"""aeripy Test Suite"""
