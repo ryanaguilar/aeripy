@@ -36,5 +36,5 @@ setup(
     ],
     packages=["aeripy"],
     include_package_data=True,
-    install_requires=["requests"]
+    install_requires=["requests", "betamax"]
 )
