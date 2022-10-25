@@ -5,7 +5,6 @@ from .models import *
 from .endpoints import API_PATH
 from .models import SystemInfo, School
 from .util import snake_case_keys, camel_case_keys
-from dotenv import load_dotenv
 
 
 class Aeripy:
