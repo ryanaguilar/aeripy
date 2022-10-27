@@ -52,7 +52,6 @@ class RestAdapter:
 
         # Deserialize JSON output to Python object, or return failed Result on exception
         try:
-            #data_out = response.json()
             data_out = response.content
         except (ValueError, TypeError, JSONDecodeError) as e:
             self._logger.error(msg=log_line_post.format(False, None, e))
