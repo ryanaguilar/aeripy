@@ -1,7 +1,15 @@
 from typing import List, Dict, Any, Union, Optional
 from datetime import datetime
-from pydantic import BaseModel
+from pydantic import BaseModel, Json
+from .util import camel_to_snake, snake_to_camel
 
+
+#def to_camel(string: str) -> str:
+#    return snake_to_camel(string)
+
+def to_camel(string: str) -> str:
+    string_split = string.split('_')
+    return string_split[0].capitalize()+''.join(word.capitalize() for word in string_split[1:])
 
 class Result(BaseModel):
     """
@@ -12,7 +20,8 @@ class Result(BaseModel):
     """
     status_code: int
     headers: dict
-    data: Optional[List[Dict]]
+    #data: Optional[Union[List[Dict], Dict]]
+    data: Json
     message: str = ''
 
 
@@ -22,6 +31,10 @@ class SystemInfo(BaseModel):
     available_database_years: List[str]
     local_time_zone_name: str
     current_date_time: datetime
+
+    class Config:
+        alias_generator = to_camel
+        allow_population_by_field_name = True
 
 
 class SchoolAccessPermission(BaseModel):
