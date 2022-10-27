@@ -1,11 +1,7 @@
 from typing import List, Dict, Any, Union, Optional
 from datetime import datetime
 from pydantic import BaseModel, Json
-from .util import camel_to_snake, snake_to_camel
 
-
-#def to_camel(string: str) -> str:
-#    return snake_to_camel(string)
 
 def to_camel(string: str) -> str:
     string_split = string.split('_')
@@ -20,7 +16,6 @@ class Result(BaseModel):
     """
     status_code: int
     headers: dict
-    #data: Optional[Union[List[Dict], Dict]]
     data: Json
     message: str = ''
 
