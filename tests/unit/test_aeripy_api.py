@@ -19,7 +19,19 @@ class TestAeripyApi(TestCase):
                                                                data={"Id": 1}
                                                                )
         staff = self.aeripyapi.get_staff(1)
-        self.assertIsInstance(staff, StaffElement)
+        assert isinstance(staff, StaffElement)
+
+    def test_get_all_staff(self):
+        self.aeripyapi._rest_adapter.get.return_value = Result(status_code=200,
+                                                               headers={},
+                                                               data=[
+                                                                        {"ID": 1},
+                                                                        {"ID": 2}
+                                                                    ]
+                                                               )
+        staff_list = self.aeripyapi.get_staff()
+        for staff in staff_list:
+            assert isinstance(staff, StaffElement)
 
 
     def test_get_one_staff_equals_requested_staff(self):
@@ -33,5 +45,6 @@ class TestAeripyApi(TestCase):
 
                                                                    )
             self.aeripyapi.get_staff()
+
 
 
