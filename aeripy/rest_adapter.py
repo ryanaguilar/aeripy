@@ -11,8 +11,7 @@ class RestAdapter:
                  api_key: str, ver: str = 'v5',
                  ssl_verify: str = '',
                  logger: logging.Logger = None):
-        """
-        Constructor for RestAdapter
+        """Constructor for RestAdapter
         :param hostname: URL of the Aeries instance. Required
         :param api_key: API key of the Aeries instance. Required
         :param ver: v5 is the default
@@ -28,8 +27,7 @@ class RestAdapter:
             requests.packages.urllib3.disable_warnings()
 
     def _do(self, http_method: str, endpoint: str, ep_params: Dict = None, data: Dict = None) -> Result:
-        """
-        Private method for get(), post, delete() methods
+        """Private method for get(), post, delete() methods
         :param http_method: GET, POST, DELETE
         :param endpoint: URL endpoint as a string
         :param ep_params: Dictionary of endpoint parameters (optional)
