@@ -70,11 +70,9 @@ class Aeripy:
         return staff
 
     def insert_staff(self, data: dict) -> StaffElement:
-        """Inserts staff into the Aeries SIS using POST. After a successful request,
-        this end point returns HTTP status code 201,
-        and the response body contains the ``staff`` object that was just created.
+        """Inserts staff into the Aeries SIS using POST.
         :param data: Dict, the data to create the staff with.
-        :return:
+        :return: Dict, ``staff`` object that was just created.
         """
         result = self._rest_adapter.post(endpoint=API_PATH["staff"], data=camel_case_keys(data))
         staff = StaffElement(**snake_case_keys(result.data))
@@ -83,8 +81,6 @@ class Aeripy:
     def update_staff(self, data: dict, staff_id: int = None) -> StaffElement:
         """
         Update staff using PUT.
-        A 200 status will be returned if staff exists.
-        A 201 status will be returned if staff was created.
         :param data: Dict, If property is omitted or null, it will be ignored.  An empty string is a valid value.
         Except in the case of LeaveDate, which will be nulled if it is omitted.
         :param staff_id: Int, If staff_id is supplied, but doesn't exist, and if auto-generate IDs IS NOT enabled,
