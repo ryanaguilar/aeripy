@@ -11,6 +11,7 @@ def to_camel(string: str) -> str:
     string_split = string.split('_')
     return string_split[0].capitalize()+''.join(word.capitalize() for word in string_split[1:])
 
+
 class Result(BaseModel):
     """
     Result returned from low-level RestAdapter
@@ -21,7 +22,6 @@ class Result(BaseModel):
     status_code: int
     headers: dict
     data: Optional[Union[List[Dict], Dict]]
-    #data: Json
     message: str = ''
 
 
