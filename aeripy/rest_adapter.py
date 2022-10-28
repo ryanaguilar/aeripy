@@ -28,7 +28,7 @@ class RestAdapter:
 
     def _do(self, http_method: str, endpoint: str, ep_params: Dict = None, data: Dict = None) -> Result:
         """Private method for get(), post, delete() methods
-        :param http_method: GET, POST, DELETE
+        :param http_method: GET, POST, PUT
         :param endpoint: URL endpoint as a string
         :param ep_params: Dictionary of endpoint parameters (optional)
         :param data: Dictionary of data to pass to Aeripy (optional)
@@ -60,7 +60,10 @@ class RestAdapter:
         log_line = log_line_post.format(is_success, response.status_code, response.reason)
         if is_success:
             self._logger.debug(msg=log_line)
-            return Result(status_code=response.status_code, headers=response.headers, message=response.reason, data=data_out)
+            return Result(status_code=response.status_code,
+                          headers=response.headers,
+                          message=response.reason,
+                          data=data_out)
         self._logger.error(msg=log_line)
         raise AeripyException(f"{response.status_code}: {response.reason}")
 
