@@ -44,7 +44,7 @@ class SchoolAccessPermission(BaseModel):
 
 
 class StaffElement(BaseModel):
-    school_access_permissions: Optional[[SchoolAccessPermission]]
+    school_access_permissions: Optional[SchoolAccessPermission]
     extended_properties: Optional[List[Any]]
     early_childhood_certification_code: Optional[str]
     gender: Optional[str]
