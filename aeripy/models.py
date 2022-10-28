@@ -1,6 +1,6 @@
 from typing import List, Dict, Any, Union, Optional
 from datetime import datetime
-from pydantic import BaseModel, Json
+from pydantic import BaseModel, ValidationError, validator
 from .util import camel_to_snake, snake_to_camel
 
 
@@ -87,6 +87,12 @@ class StaffElement(BaseModel):
     birth_date: Optional[datetime] = None
     hire_date: Optional[datetime] = None
     leave_date: Optional[datetime] = None
+
+    @validator('state_educator_id')
+    def seid_must_be_nine_digits(cls, v):
+        if len(v) > 10:
+            raise ValueError('SEID must be less than 10 digits')
+        return v
 
     class Config:
         alias_generator = to_camel
