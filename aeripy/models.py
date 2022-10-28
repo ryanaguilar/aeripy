@@ -4,9 +4,6 @@ from pydantic import BaseModel, Json
 from .util import camel_to_snake, snake_to_camel
 
 
-#def to_camel(string: str) -> str:
-#    return snake_to_camel(string)
-
 def to_camel(string: str) -> str:
     string_split = string.split('_')
     return string_split[0].capitalize()+''.join(word.capitalize() for word in string_split[1:])
