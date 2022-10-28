@@ -16,11 +16,14 @@ class TestAeripyApi(TestCase):
     def test_get_one_staff_id_only(self):
         self.aeripyapi._rest_adapter.get.return_value = Result(status_code=200,
                                                                headers={},
-                                                               data=[{"ID": 1}]
+                                                               data={"Id": 1}
                                                                )
-        staff_list = self.aeripyapi.get_staff()
-        for staff in staff_list:
-            self.assertIsInstance(staff, StaffElement)
+        staff = self.aeripyapi.get_staff(1)
+        self.assertIsInstance(staff, StaffElement)
+
+
+    def test_get_one_staff_equals_requested_staff(self):
+        pass
 
     def test_get_one_staff_no_id_fail(self):
         with pytest.raises(ValidationError):

@@ -62,7 +62,7 @@ class Aeripy:
         if staff_id is not None:
             endpoint = API_PATH['staff_id'].format(staff_id=staff_id)
             result = self._rest_adapter.get(endpoint=endpoint)
-            staff = StaffElement(**snake_case_keys(result.data))
+            staff = StaffElement(**result.data)
         else:
             endpoint = API_PATH['staff']
             result = self._rest_adapter.get(endpoint=endpoint)

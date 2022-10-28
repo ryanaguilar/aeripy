@@ -91,6 +91,10 @@ class StaffElement(BaseModel):
     hire_date: Optional[datetime] = None
     leave_date: Optional[datetime] = None
 
+    class Config:
+        alias_generator = to_camel
+        allow_population_by_field_name = True
+
 
 class AssignmentElement(BaseModel):
     monthly_minutes: int
