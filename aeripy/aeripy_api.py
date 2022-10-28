@@ -8,8 +8,7 @@ from .util import snake_case_keys, camel_case_keys
 
 
 class Aeripy:
-    """
-    The Aeripy class provides access to the Aeries API.
+    """The Aeripy class provides access to the Aeries API.
 
     Instances of this class are the primary way to interact with the Aeries API.  To obtain and instance of this class:
 
@@ -29,8 +28,7 @@ class Aeripy:
                  ssl_verify: str = '',
                  logger: logging.Logger = None,
                  page_size: int = 5):
-        """
-        Initialize a :class:`Aeripy` instance.
+        """Initialize a :class:`Aeripy` instance.
 
         :param hostname: The base url of the Aeries SIS with the path /api on the end
         :param api_key: This api_key is found in Aeries->Security->API security. See Aeries documentation for details
@@ -44,8 +42,8 @@ class Aeripy:
         self._page_size = page_size
 
     def get_system_info(self) -> SystemInfo:
-        """
-        Gets information about the target Aeries SIS.
+        """Gets information about the target Aeries SIS.
+
         :return: SystemInfo
         """
         result = self._rest_adapter.get(endpoint=API_PATH["system_info"])
@@ -56,6 +54,7 @@ class Aeripy:
 
     def get_staff(self, staff_id: int = None) -> List[StaffElement]:
         """Return objects from a GET request to the ``staff`` endpoint.
+
         :param staff_id: Int, ID of staff to get. None to request all staff (default: ``None``).
         :return: All staff will be returned if no staff_id is supplied
         """
@@ -71,6 +70,7 @@ class Aeripy:
 
     def insert_staff(self, data: dict) -> StaffElement:
         """Inserts staff into the Aeries SIS using POST.
+
         :param data: Dict, the data to create the staff with.
         :return: Dict, ``staff`` object that was just created.
         """
@@ -79,8 +79,8 @@ class Aeripy:
         return staff
 
     def update_staff(self, data: dict, staff_id: int = None) -> StaffElement:
-        """
-        Update staff using PUT.
+        """Update staff using PUT.
+
         :param data: Dict, If property is omitted or null, it will be ignored.  An empty string is a valid value.
         Except in the case of LeaveDate, which will be nulled if it is omitted.
         :param staff_id: Int, If staff_id is supplied, but doesn't exist, and if auto-generate IDs IS NOT enabled,
