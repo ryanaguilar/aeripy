@@ -49,9 +49,9 @@ class Aeripy:
         :return: SystemInfo
         """
         result = self._rest_adapter.get(endpoint=API_PATH["system_info"])
-        #sys_info = SystemInfo(**snake_case_keys(result.data))
+        sys_info = SystemInfo(**snake_case_keys(result.data))
         print(result.data)
-        sys_info = SystemInfo.parse_obj(result.data)
+        #sys_info = SystemInfo.parse_obj(result.data)
         return sys_info
 
 

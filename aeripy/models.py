@@ -20,8 +20,8 @@ class Result(BaseModel):
     """
     status_code: int
     headers: dict
-    #data: Optional[Union[List[Dict], Dict]]
-    data: Json
+    data: Optional[Union[List[Dict], Dict]]
+    #data: Json
     message: str = ''
 
 
@@ -44,49 +44,49 @@ class SchoolAccessPermission(BaseModel):
 
 
 class StaffElement(BaseModel):
-    school_access_permissions: List[SchoolAccessPermission]
-    extended_properties: List[Any]
-    early_childhood_certification_code: str
-    gender: str
-    education_level_code: int
-    ethnicity_code: str
-    race_code1: str
-    race_code2: str
-    race_code3: str
-    race_code4: str
-    race_code5: str
-    position_status_code: str
-    total_years_of_edu_service: int
-    total_years_in_this_district: int
-    previous_last_name: str
-    previous_first_name: str
-    previous_middle_name: str
-    name_suffix: str
-    address: str
-    address_city: str
-    address_state: str
-    address_zip_code: int
-    address_zip_ext: int
-    home_phone: str
-    emergency_contact_name: str
-    emergency_contact_phone: str
+    school_access_permissions: Optional[[SchoolAccessPermission]]
+    extended_properties: Optional[List[Any]]
+    early_childhood_certification_code: Optional[str]
+    gender: Optional[str]
+    education_level_code: Optional[int]
+    ethnicity_code: Optional[str]
+    race_code1: Optional[str]
+    race_code2: Optional[str]
+    race_code3: Optional[str]
+    race_code4: Optional[str]
+    race_code5: Optional[str]
+    position_status_code: Optional[str]
+    total_years_of_edu_service: Optional[int]
+    total_years_in_this_district: Optional[int]
+    previous_last_name: Optional[str]
+    previous_first_name: Optional[str]
+    previous_middle_name: Optional[str]
+    name_suffix: Optional[str]
+    address: Optional[str]
+    address_city: Optional[str]
+    address_state: Optional[str]
+    address_zip_code: Optional[int]
+    address_zip_ext: Optional[int]
+    home_phone: Optional[str]
+    emergency_contact_name: Optional[str]
+    emergency_contact_phone: Optional[str]
     id: int
-    first_name: str
-    last_name: str
-    middle_name: str
-    birth_year: int
-    full_time_percentage: int
-    inactive_status_code: str
-    state_educator_id: str
-    user_name: str
-    email_address: str
-    primary_aeries_school: int
-    network_login_id: str
-    alternate_email_address: str
-    human_resources_system_id: str
-    cell_phone: str
-    notification_preference_code: str
-    title: str
+    first_name: Optional[str]
+    last_name: Optional[str]
+    middle_name: Optional[str]
+    birth_year: Optional[int]
+    full_time_percentage: Optional[int]
+    inactive_status_code: Optional[str]
+    state_educator_id: Optional[str]
+    user_name: Optional[str]
+    email_address: Optional[str]
+    primary_aeries_school: Optional[int]
+    network_login_id: Optional[str]
+    alternate_email_address: Optional[str]
+    human_resources_system_id: Optional[str]
+    cell_phone: Optional[str]
+    notification_preference_code: Optional[str]
+    title: Optional[str]
     birth_date: Optional[datetime] = None
     hire_date: Optional[datetime] = None
     leave_date: Optional[datetime] = None
