@@ -91,7 +91,7 @@ class StaffElement(BaseModel):
     @validator('state_educator_id')
     def seid_must_be_nine_digits(cls, v):
         if len(v) > 10:
-            raise ValueError('SEID must be less than 10 digits')
+            raise ValidationError('SEID must be less than 10 digits')
         return v
 
     class Config:

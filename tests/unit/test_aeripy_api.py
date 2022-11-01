@@ -61,4 +61,18 @@ class TestAeripyApi(TestCase):
                                                                    )
             self.aeripyapi.get_staff(1)
 
+    def test_update_staff_success(self):
+        pass
+
+    def test_update_staff_no_data(self):
+        pass
+
+    def test_update_staff_no_id(self):
+        pass
+
+    def test_insert_staff_no_data(self):
+        pass
+
+    def test_insert_staff_no_id(self):
+        pass
 
