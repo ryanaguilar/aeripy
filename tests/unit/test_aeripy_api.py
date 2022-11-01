@@ -53,12 +53,12 @@ class TestAeripyApi(TestCase):
     def test_get_staff_seid_too_long(self):
         with pytest.raises(ValidationError):
             self.aeripyapi._rest_adapter.get.return_value = Result(status_code=200,
-                                                               headers={},
-                                                               data={
+                                                                   headers={},
+                                                                   data={
                                                                         "Id": 1,
                                                                         "StateEducatorId": "12345678901",
                                                                      }
-                                                               )
+                                                                   )
             self.aeripyapi.get_staff(1)
 
 
