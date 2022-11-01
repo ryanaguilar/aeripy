@@ -4,6 +4,7 @@ from aeripy.aeripy_api import Aeripy
 from aeripy.models import SystemInfo, Result, StaffElement
 from aeripy.exceptions import AeripyException
 import pytest
+from aeripy.exceptions import StateEducatorIdError
 from pydantic import ValidationError
 
 
@@ -51,7 +52,7 @@ class TestAeripyApi(TestCase):
             self.aeripyapi.get_staff()
 
     def test_get_staff_seid_too_long(self):
-        with pytest.raises(ValidationError):
+        with pytest.raises(StateEducatorIdError):
             self.aeripyapi._rest_adapter.get.return_value = Result(status_code=200,
                                                                    headers={},
                                                                    data={
