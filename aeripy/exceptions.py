@@ -5,8 +5,14 @@ client side. These two classes extend :class:`.AeripyException`. A third class o
 extend the pydantic base exception.
 """
 
+from pydantic import ValidationError
+
 
 class AeripyException(Exception):
     """The base aeripy Exception that all other exception classes extend"""
     pass
+
+
+class StateEducatorIdError(ValidationError):
+    """The StateEducatorId is longer than 10 digits"""
 
