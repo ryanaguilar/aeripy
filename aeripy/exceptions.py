@@ -13,6 +13,10 @@ class AeripyException(Exception):
     pass
 
 
-class StateEducatorIdError(ValidationError):
+class AeripyValidationError(ValidationError):
+    """Aeripy base Validation Error"""
+
+
+class StateEducatorIdError(AeripyValidationError):
     """The StateEducatorId is longer than 10 digits"""
 

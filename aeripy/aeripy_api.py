@@ -5,7 +5,7 @@ from .models import *
 from .endpoints import API_PATH
 from .models import SystemInfo
 from .util import snake_case_keys, camel_case_keys
-
+from .exceptions import AeripyException
 
 class Aeripy:
     """The Aeripy class provides access to the Aeries API.
@@ -40,6 +40,7 @@ class Aeripy:
         """
         self._rest_adapter = RestAdapter(hostname, api_key, ver, ssl_verify, logger)
         self._page_size = page_size
+        self._logger = logger or logging.getLogger(__name__)
 
     def get_system_info(self) -> SystemInfo:
         """Gets information about the target Aeries SIS.
@@ -65,7 +66,7 @@ class Aeripy:
         else:
             endpoint = API_PATH['staff']
             result = self._rest_adapter.get(endpoint=endpoint)
-            staff = [StaffElement(**snake_case_keys(datum)) for datum in result.data]
+            staff = [StaffElement(**datum) for datum in result.data]
         return staff
 
     def insert_staff(self, data: dict) -> StaffElement:

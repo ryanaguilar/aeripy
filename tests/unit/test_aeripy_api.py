@@ -58,7 +58,7 @@ class TestAeripyApi(TestCase):
                                                                    data={
                                                                         "Id": 1,
                                                                         "StateEducatorId": "12345678901",
-                                                                     }
+                                                                        }
                                                                    )
             self.aeripyapi.get_staff(1)
 
