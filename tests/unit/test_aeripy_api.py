@@ -29,8 +29,8 @@ class TestAeripyApi(TestCase):
         self.aeripyapi._rest_adapter.get.return_value = Result(status_code=200,
                                                                headers={},
                                                                data=[
-                                                                        {"ID": 1},
-                                                                        {"ID": 2}
+                                                                        {"Id": 1},
+                                                                        {"Id": 2}
                                                                     ]
                                                                )
         staff_list = self.aeripyapi.get_staff()
@@ -43,8 +43,8 @@ class TestAeripyApi(TestCase):
     def test_get_one_staff_equals_requested_staff(self):
         pass
 
-    def test_get_one_staff_no_id_fail(self):
-        with pytest.raises(ValidationError):
+    def test_get_all_staff_no_id_fail(self):
+        with pytest.raises(StateEducatorIdError):
             self.aeripyapi._rest_adapter.get.return_value = Result(status_code=200,
                                                                    headers={},
                                                                    data=[{"NameFirst": 'Joe'}]
@@ -52,7 +52,7 @@ class TestAeripyApi(TestCase):
             self.aeripyapi.get_staff()
 
     def test_get_staff_seid_too_long(self):
-        with pytest.raises(StateEducatorIdError):
+        with pytest.raises(ValidationError):
             self.aeripyapi._rest_adapter.get.return_value = Result(status_code=200,
                                                                    headers={},
                                                                    data={
@@ -77,3 +77,6 @@ class TestAeripyApi(TestCase):
     def test_insert_staff_no_id(self):
         pass
 
+    def test_get_staff_fields_no_match(self):
+        """Test if camel_case in model doesn't match json field"""
+        pass

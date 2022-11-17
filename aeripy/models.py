@@ -1,7 +1,8 @@
 from typing import List, Dict, Any, Union, Optional
 from datetime import datetime
-from pydantic import BaseModel, ValidationError, validator
+from pydantic import BaseModel, ValidationError, validator, PydanticValueError
 from .util import camel_to_snake, snake_to_camel
+from .exceptions import StateEducatorIdError, AeripyException
 
 
 def to_camel(string: str) -> str:
@@ -91,7 +92,7 @@ class StaffElement(BaseModel):
     @validator('state_educator_id')
     def seid_must_be_nine_digits(cls, v):
         if len(v) > 10:
-            raise ValidationError('SEID must be less than 10 digits')
+            raise ValueError('SEID must be less than 10 digits')
         return v
 
     class Config:

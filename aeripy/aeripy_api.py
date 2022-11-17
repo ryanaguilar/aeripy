@@ -62,10 +62,12 @@ class Aeripy:
         if staff_id is not None:
             endpoint = API_PATH['staff_id'].format(staff_id=staff_id)
             result = self._rest_adapter.get(endpoint=endpoint)
+            self._logger.info(result.data)
             staff = StaffElement(**result.data)
         else:
             endpoint = API_PATH['staff']
             result = self._rest_adapter.get(endpoint=endpoint)
+            self._logger.info(result.data)
             staff = [StaffElement(**datum) for datum in result.data]
         return staff
 
