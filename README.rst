@@ -30,6 +30,7 @@ Both are found in their `documentation <https://support.aeries.com/support/solut
 To use this module with your own Aeries database, you will need your district's URL and API key.  See the `URL and API Key`_ section for details.
 
 .. code-block:: python3
+
     # Aeries Demo URL and API key
     hostname = 'demo.aeries.net/aeries/api/'
     api_key = '477abe9e7d27439681d62f4e0de1f5e1'
