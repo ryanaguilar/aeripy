@@ -1,5 +1,11 @@
-- name: Publish a Python distribution to PyPI
-  if: github.event_name == 'push' && startsWith(github.ref, 'publish')
-  uses: pypa/gh-action-pypi-publish@release/v1
-  with:
-    password: ${{ secrets.PYPI_API_TOKEN }}
+name: GitHub Actions PyPI
+on: [push]
+jobs:
+  Publish-to-PyPI:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish package
+        if: github.event_name == 'push' && startsWith(github.ref, 'publish')
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
