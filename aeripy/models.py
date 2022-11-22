@@ -613,3 +613,14 @@ class StudentPicture:
     student_id: int
     pictures: List[Picture]
     school_code: int
+
+@dataclass
+class StudentGroup:
+    students: List[Student]
+    staff: List[Staff]
+    group_id: int
+    name: str
+    description: str
+    expiration_date: None
+    school_code: int
+    is_communication_group: bool
