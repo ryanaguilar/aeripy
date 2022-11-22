@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from enum import Enum
-from typing import List
+from typing import List, Optional
+from datetime import datetime
 
 @dataclass
 class PeriodTotal:
@@ -71,3 +72,40 @@ class AttendanceElement:
     student_id: int
     attendance_days: List[AttendanceDay]
     school_code: int
+
+class AttendanceProgramCode(Enum):
+    EMPTY = ""
+    I = "I"
+
+
+class AttendanceProgramCodeAdditional1(Enum):
+    EMPTY = ""
+    X = "X"
+
+
+class AttendanceProgramCodeAdditional2(Enum):
+    EMPTY = ""
+    Z = "Z"
+
+
+@dataclass
+class EnrollmentElement:
+    student_id: int
+    inter_intra_district_state_code: str
+    nonpublic_school_state_code: str
+    next_school_code: int
+    reporting_school_code: int
+    school_code: int
+    student_number: int
+    academic_year: int
+    track: str
+    attendance_program_code: AttendanceProgramCode
+    attendance_program_code_additional1: AttendanceProgramCodeAdditional1
+    attendance_program_code_additional2: AttendanceProgramCodeAdditional2
+    grade: int
+    elementary_teacher_number: int
+    elementary_teacher_name: str
+    enter_date: datetime
+    exit_reason_code: str
+    inter_intra_district_transfer_code: str
+    leave_date: Optional[datetime] = None
