@@ -469,3 +469,72 @@ class TestScore:
 class CollegeTestScore:
     student_id: int
     test_scores: List[TestScore]
+
+@dataclass
+class AdministrativeDecision:
+    student_id: int
+    assigned_days: int
+    assigned_hours: int
+    assigned_start_date: None
+    assigned_end_date: None
+    assigned_return_date: None
+    reason_for_difference_code: str
+    disciplinary_assignment_school_code: int
+    action_decision_date: None
+    sequence_number: int
+    disposition_code: str
+    days: int
+    hours: int
+    start_date: datetime
+    end_date: None
+    return_date: None
+    return_status_code: str
+    return_location_code: str
+    action_authority_code: str
+    placement_code: str
+    result_code: str
+    suspension_tag_code: str
+
+
+@dataclass
+class AssertiveDisciplineAssertiveDiscipline:
+    administrative_decisions: List[AdministrativeDecision]
+    short_description: str
+    staff_referral: int
+    referred_by_other: str
+    sequence_number: int
+    incident_date: datetime
+    incident_id: int
+    exact_time: None
+    approximate_time_code: str
+    school_of_incident_code: int
+    location_code: str
+    possible_motivation_code: str
+    weapon_type_code: str
+    demerits: int
+    initials: str
+    instructional_support_indicator: str
+    comment: str
+    is_substitute_teacher_referral: bool
+    violation_code1: int
+    violation_code2: str
+    violation_code3: str
+    violation_code4: str
+    violation_code5: str
+    pre_referral_intervention_code1: str
+    pre_referral_intervention_code2: int
+    pre_referral_intervention_code3: str
+    user_code1: str
+    user_code2: str
+    user_code3: str
+    user_code4: str
+    user_code5: str
+    user_code6: str
+    user_code7: str
+    user_code8: str
+
+
+@dataclass
+class PurpleAssertiveDiscipline:
+    student_id: int
+    assertive_disciplines: List[AssertiveDisciplineAssertiveDiscipline]
