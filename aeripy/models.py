@@ -391,3 +391,23 @@ class Contact:
     military_status_code: str
     notification_preference_code: int
     comments: str
+
+@dataclass
+class Activity:
+    student_id: int
+    school_code: int
+    sequence_number: int
+    date_entered: datetime
+    type_code: str
+    activity_or_award_code: str
+    name: str
+    start_date: None
+    end_date: None
+    hours: int
+    reason_code: str
+    season_code: str
+    status_code: str
+    transportation_date: None
+    transportation_status_code: str
+    career_pathway_code: str
+    comment: str
