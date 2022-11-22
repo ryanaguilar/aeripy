@@ -580,3 +580,23 @@ class DistrictSupplementalElement:
 class SchoolSupplementalElement:
     student_id: int
     columns: List[Column]
+
+@dataclass
+class FeeClass:
+    fee_code: str
+    sequence_number: int
+    amount_charged: int
+    date_charged: datetime
+    amount_paid: int
+    date_paid: None
+    letter_count: int
+    comment: str
+    receipt_number: str
+    school_code: int
+
+
+@dataclass
+class FeeElement:
+    student_id: int
+    fees: List[FeeClass]
+
