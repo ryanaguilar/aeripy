@@ -426,3 +426,22 @@ class Authorizations:
     comment: str
     test_administration: str
     source: str
+
+@dataclass
+class Score:
+    type: str
+    score: int
+
+@dataclass
+class Test:
+    student_id: int
+    scores: List[Score]
+    sequence_number: int
+    test_id: str
+    test_part: int
+    test_description: str
+    grade_level: int
+    testing_administration: str
+    test_date: datetime
+    test_type_code: str
+    test_source_code: str
