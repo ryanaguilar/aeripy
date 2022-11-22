@@ -576,3 +576,7 @@ class DistrictSupplementalElement:
     student_id: int
     columns: List[Column]
 
+@dataclass
+class SchoolSupplementalElement:
+    student_id: int
+    columns: List[Column]
