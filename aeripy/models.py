@@ -538,3 +538,27 @@ class AssertiveDisciplineAssertiveDiscipline:
 class PurpleAssertiveDiscipline:
     student_id: int
     assertive_disciplines: List[AssertiveDisciplineAssertiveDiscipline]
+
+@dataclass
+class DisciplineElement:
+    sequence_number: int
+    incident_date: datetime
+    violation_code1: str
+    comment: str
+    school_of_incident_code: int
+    staff_id: int
+    user_created: str
+    last_update_by: str
+    last_update_date: datetime
+    status: str
+    exact_time: datetime
+    location: str
+    possible_motivation: str
+    consequence: str
+    date_timestamp: datetime
+
+
+@dataclass
+class Discipline:
+    student_id: int
+    disciplines: List[DisciplineElement]
