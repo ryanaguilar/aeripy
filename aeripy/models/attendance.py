@@ -39,3 +39,35 @@ class AttendanceCodes:
     is_suspension: bool
     is_partial_day_truant: bool
     school_code: int
+
+class AttendanceCode(Enum):
+    D = "D"
+    EMPTY = ""
+    I = "I"
+    K = "K"
+    O = "O"
+    Q = "Q"
+    S = "S"
+    T = "T"
+    U = "U"
+
+
+@dataclass
+class Class:
+    section_number: int
+    period: int
+    attendance_code: AttendanceCode
+
+
+@dataclass
+class AttendanceDay:
+    calendar_date: datetime
+    all_day_attendance_code: AttendanceCode
+    classes: List[Class]
+
+
+@dataclass
+class AttendanceElement:
+    student_id: int
+    attendance_days: List[AttendanceDay]
+    school_code: int
