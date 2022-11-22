@@ -411,3 +411,18 @@ class Activity:
     transportation_status_code: str
     career_pathway_code: str
     comment: str
+
+@dataclass
+class Authorizations:
+    student_id: int
+    school_code: int
+    sequence_number: int
+    date_entered: datetime
+    type_code: int
+    misc_code: str
+    status: int
+    status_date: datetime
+    effective_end_date: datetime
+    comment: str
+    test_administration: str
+    source: str
