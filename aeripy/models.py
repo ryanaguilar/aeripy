@@ -562,3 +562,16 @@ class DisciplineElement:
 class Discipline:
     student_id: int
     disciplines: List[DisciplineElement]
+
+@dataclass
+class Column:
+    column_code: str
+    column_description: str
+    value: str
+    column_type: str
+
+
+@dataclass
+class SupplementalElement:
+    student_id: int
+    columns: List[Column]
