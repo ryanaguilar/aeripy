@@ -445,3 +445,27 @@ class Test:
     test_date: datetime
     test_type_code: str
     test_source_code: str
+
+@dataclass
+class SubTest:
+    code: str
+    score: int
+
+
+@dataclass
+class TestScore:
+    sub_tests: List[SubTest]
+    test_source_code: str
+    test_type_code: str
+    college_and_career_readiness_english_benchmark_indicator: str
+    college_and_career_readiness_math_benchmark_indicator: str
+    grade_level: str
+    test_date: datetime
+    test_name: str
+    overall_score: int
+
+
+@dataclass
+class CollegeTestScore:
+    student_id: int
+    test_scores: List[TestScore]
