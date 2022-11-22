@@ -600,3 +600,16 @@ class FeeElement:
     student_id: int
     fees: List[FeeClass]
 
+@dataclass
+class Picture:
+    school_year: int
+    raw_binary: str
+    file_extension: str
+    file_size: int
+
+
+@dataclass
+class StudentPicture:
+    student_id: int
+    pictures: List[Picture]
+    school_code: int
