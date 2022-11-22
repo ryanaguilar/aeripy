@@ -162,7 +162,7 @@ class SchoolAccessPermission:
 
 
 @dataclass
-class StaffElement:
+class Staff:
     school_access_permissions: List[SchoolAccessPermission]
     extended_properties: List[Any]
     early_childhood_certification_code: str
