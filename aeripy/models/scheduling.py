@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from datetime import datetime
+from typing import List, Any
 
 @dataclass
 class ClassCalendar:
@@ -31,6 +32,10 @@ class ClassSchedule:
     course_id: str
     date_started: datetime
     date_ended: datetime
+
+@dataclass
+class Roster:
+    List: ClassSchedule
 
 
 @dataclass
@@ -125,3 +130,167 @@ class Course:
     alternate_course: str
     default_max_students: int
     next_year_inactive_status_code: str
+
+
+@dataclass
+class SectionStaffMember:
+    staff_id: int
+    last_name: str
+    first_name: str
+    is_primary_teacher: bool
+    staff_role_code: str
+    teacher_position_code: str
+    attendance_permission: str
+    gradebook_permission_code: str
+    grade_reporting_access: str
+    student_access: str
+    include_in_state_reporting: str
+    start_date: None
+    end_date: None
+    inactive_status_code: str
+
+
+@dataclass
+class Section:
+    school_code: int
+    section_number: int
+    period: int
+    period_block: int
+    semester: str
+    class_calendar: str
+    course_id: int
+    section_staff_members: List[SectionStaffMember]
+    room: str
+    credit: int
+    gender_restriction: str
+    low_grade: int
+    high_grade: int
+    max_students: int
+    total_students: int
+    total_boys: int
+    total_girls: int
+    total_other_gender: int
+    inactive_status_code: str
+    program_code: str
+    hourly_attendance_program_code: str
+    exclusion_code: str
+    counts_for_ada: str
+    multi_teacher_code: str
+    scheduling_group: str
+    team_course_group: str
+    team_number: int
+    semester_group: str
+    track: str
+    class_id: int
+    education_service_code: str
+    language_of_instruction_code: str
+    instructional_strategy_code: str
+    funding_source_code: str
+    career_technical_education_provider_code: str
+    independent_study_indicator: str
+    distance_learning_indicator: str
+    itinerant_teacher_indicator: str
+    use_supplemental_attendance: bool
+    articulated_course_indicator: str
+    non_campus_based_instruction_code: str
+    population_served_code: str
+    class_type_code: str
+    monthly_minutes: int
+    pre_k_school_type_code: str
+    pre_k_curricula_code: str
+    is_high_quality_pre_k_program: bool
+    instruction_type_code: str
+    program_evaluation_type_code: str
+    educational_environment_code: str
+    career_technical_education_hours: int
+    content_subcategory_code: str
+    charter_non_core_indicator: str
+    advanced_course_state_code: str
+    online_instruction_type_code: str
+    middle_school_core_indicator: str
+    non_credentialed_authorization_code: str
+    high_quality_career_technical_education_indicator: str
+    user_code1: str
+    user_code2: str
+    user_code3: str
+    user_code4: str
+    user_code5: str
+    user_code6: str
+    user_code7: str
+    user_code8: str
+    primary_class: bool
+
+
+@dataclass
+class MasterScheduleSection:
+    school_code: int
+    section_number: int
+    period: int
+    period_block: int
+    semester: str
+    class_calendar: str
+    course_id: str
+    section_staff_members: List[Any]
+    room: str
+    credit: int
+    gender_restriction: str
+    low_grade: int
+    high_grade: int
+    max_students: int
+    total_students: int
+    total_boys: int
+    total_girls: int
+    total_other_gender: int
+    total_prescheduled: int
+    inactive_status_code: str
+    program_code: str
+    hourly_attendance_program_code: str
+    exclusion_code: str
+    counts_for_ada: str
+    multi_teacher_code: int
+    scheduling_group: str
+    team_course_group: str
+    team_number: int
+    semester_group: str
+    track: str
+    class_id: int
+    education_service_code: str
+    language_of_instruction_code: str
+    instructional_strategy_code: str
+    funding_source_code: str
+    career_technical_education_provider_code: str
+    independent_study_indicator: str
+    distance_learning_indicator: str
+    itinerant_teacher_indicator: str
+    use_supplemental_attendance: bool
+    articulated_course_indicator: str
+    non_campus_based_instruction_code: str
+    population_served_code: str
+    class_type_code: str
+    monthly_minutes: int
+    pre_k_school_type_code: str
+    pre_k_curricula_code: str
+    is_high_quality_pre_k_program: bool
+    instruction_type_code: str
+    program_evaluation_type_code: str
+    educational_environment_code: str
+    career_technical_education_hours: int
+    content_subcategory_code: str
+    charter_non_core_indicator: str
+    advanced_course_state_code: str
+    online_instruction_type_code: str
+    middle_school_core_indicator: str
+    non_credentialed_authorization_code: str
+    high_quality_career_technical_education_indicator: str
+    arena_scheduling_indicator: str
+    exclude_from_scheduler: bool
+    flex_period_sequence_number: int
+    class_calendar_sequence_number: int
+    user_code1: str
+    user_code2: str
+    user_code3: str
+    user_code4: str
+    user_code5: str
+    user_code6: str
+    user_code7: str
+    user_code8: str
