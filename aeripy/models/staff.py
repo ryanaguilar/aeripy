@@ -80,3 +80,34 @@ class Assignment:
     school_code: int
     start_date: datetime
     end_date: None
+
+@dataclass
+class Teacher:
+    class_calendar_sequence_number: int
+    class_calendar: str
+    user_code1: str
+    user_code2: str
+    user_code3: str
+    user_code4: str
+    user_code5: str
+    user_code6: str
+    user_code7: str
+    user_code8: str
+    low_grade: int
+    high_grade: int
+    school_code: int
+    teacher_number: int
+    display_name: str
+    first_name: str
+    last_name: str
+    room: int
+    email_address: str
+    staff_id1: int
+    staff_id2: int
+    staff_id3: int
+    state_course_code: str
+    inactive_status_code: str
+    highly_qualified_status_code1: str
+    highly_qualified_status_code2: str
+    highly_qualified_status_code3: str
+    next_year_inactive_status_code: str
