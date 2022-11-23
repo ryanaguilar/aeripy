@@ -294,3 +294,26 @@ class MasterScheduleSection:
     user_code6: str
     user_code7: str
     user_code8: str
+
+@dataclass
+class AlternateCourseRequest:
+    student_id: int
+    school_code: int
+    sequence_number: int
+    course_id: str
+    priority_sort_order: int
+
+
+@dataclass
+class CourseRequest:
+    student_id: int
+    alternate_course_requests: List[AlternateCourseRequest]
+    actual_primary_course_id: str
+    school_code: int
+    sequence_number: int
+    section_number: int
+    course_id: str
+    preferred_teacher_number: int
+    reject_code: str
+    alternate_tag: str
+    permanent_lock_code: str
