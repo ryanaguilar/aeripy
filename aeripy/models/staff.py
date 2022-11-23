@@ -58,3 +58,25 @@ class Staff:
     cell_phone: str
     notification_preference_code: int
     title: str
+
+
+@dataclass
+class Assignment:
+    monthly_minutes: int
+    population_served_code: str
+    service_id_code: str
+    assignment_type: str
+    id: int
+    sequence_number: int
+    job_classification_code: int
+    full_time_percentage: int
+    non_classroom_based_job_assignment_code1: str
+    non_classroom_based_job_assignment_code2: str
+    non_classroom_based_job_assignment_code3: str
+    non_classroom_based_job_assignment_code4: str
+    non_classroom_based_job_assignment_code5: str
+    non_classroom_based_job_assignment_code6: str
+    non_classroom_based_job_assignment_code7: str
+    school_code: int
+    start_date: datetime
+    end_date: None
