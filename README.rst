@@ -9,10 +9,11 @@ Aeripy
 Aeripy is a Python adapter for the Aeries Student Information System API.  It's goal is to simplify interaction with your district's Aeries database.
 
 By wrapping the popular `requests <https://github.com/psf/requests>`_ library, Aeripy makes it easier to call the API:
-- The end user does not have to remember the endpoints. The methods are largely named according to what resource they want, i.e. get_staff(), get_students(), etc.
-- Exception handling.  Instead of an entire update batch failing, the module will log the unsucessful attempts.
-- Logging. The end user can see what failed and why, without having to decipher HTTP error codes.
-- The user can filter API calls with an argument rather than constructing the request with the correct paramters.
+
+* The end user does not have to remember the endpoints. The methods are largely named according to what resource they want, i.e. get_staff(), get_students(), etc.
+* Exception handling.  Instead of an entire update batch failing, the module will log the unsucessful attempts.
+* Logging. The end user can see what failed and why, without having to decipher HTTP error codes.
+* The user can filter API calls with an argument rather than constructing the request with the correct paramters.
 
 
 Note: Aeripy is in no way affiliated with Aeries Software, Inc. This module is based on their publicly available documentation.
