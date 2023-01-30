@@ -15,7 +15,7 @@ with open(path.join(HERE, 'README.rst'), encoding='utf-8') as f:
 # This call to setup() does all the work
 setup(
     name="aeripy",
-    version="0.2.13",
+    version="0.2.14",
     description="Aeries API Python Adapter",
     long_description=long_description,
     long_description_content_type="text/x-rst",
@@ -28,8 +28,6 @@ setup(
         "License :: OSI Approved :: BSD License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Operating System :: OS Independent"
