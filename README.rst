@@ -13,7 +13,7 @@ By wrapping the popular `requests <https://github.com/psf/requests>`_ library, A
 * The end user does not have to remember the endpoints. The methods are largely named according to what resource they want, i.e. get_staff(), get_students(), etc.
 * Exception handling.  Instead of an entire update batch failing, the module will log the unsucessful attempts.
 * Logging. The end user can see what failed and why, without having to decipher HTTP error codes.
-* The user can filter API calls with an argument rather than constructing the request with the correct paramters.
+* Querying. The user can filter API calls by simply adding an argument to the method.
 
 
 Note: Aeripy is in no way affiliated with Aeries Software, Inc. This module is based on their publicly available documentation.
